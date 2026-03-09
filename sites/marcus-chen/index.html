@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BusWhere | Marcus Chen</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=VT323&family=Fira+Mono&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Fira Mono', 'Courier New', monospace;
+      color: #00ff41;
+      background: #0a0a0a;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Scanline overlay */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 255, 65, 0.03) 2px,
+        rgba(0, 255, 65, 0.03) 4px
+      );
+      pointer-events: none;
+      z-index: 1000;
+    }
+
+    /* CRT flicker */
+    body::after {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 255, 65, 0.015);
+      pointer-events: none;
+      z-index: 999;
+      animation: flicker 0.15s infinite;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 0.27861; }
+      5% { opacity: 0.34769; }
+      10% { opacity: 0.23604; }
+      15% { opacity: 0.90626; }
+      20% { opacity: 0.18128; }
+      25% { opacity: 0.83891; }
+      30% { opacity: 0.65583; }
+      35% { opacity: 0.67807; }
+      40% { opacity: 0.26559; }
+      45% { opacity: 0.84693; }
+      50% { opacity: 0.96019; }
+      55% { opacity: 0.08594; }
+      60% { opacity: 0.20313; }
+      65% { opacity: 0.71988; }
+      70% { opacity: 0.53455; }
+      75% { opacity: 0.37288; }
+      80% { opacity: 0.71428; }
+      85% { opacity: 0.70419; }
+      90% { opacity: 0.7003; }
+      95% { opacity: 0.36108; }
+      100% { opacity: 0.24387; }
+    }
+
+    @keyframes blink {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+    }
+
+    header {
+      margin-bottom: 2rem;
+      border: 1px solid #00ff41;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    header::before {
+      content: '[ SYSTEM TERMINAL v3.2.1 ]';
+      position: absolute;
+      top: -0.7rem;
+      left: 1rem;
+      background: #0a0a0a;
+      padding: 0 0.5rem;
+      font-size: 0.75rem;
+      color: #00aa2a;
+    }
+
+    header h1 {
+      font-family: 'VT323', monospace;
+      font-size: 3rem;
+      color: #00ff41;
+      text-shadow: 0 0 10px #00ff41, 0 0 20px #00ff41;
+      margin-bottom: 0.5rem;
+    }
+
+    header h1::after {
+      content: '_';
+      animation: blink 1s step-end infinite;
+    }
+
+    .prompt {
+      color: #00aa2a;
+      font-size: 0.9rem;
+    }
+
+    .prompt span {
+      color: #00ff41;
+    }
+
+    section {
+      border: 1px solid #004d00;
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      background: rgba(0, 255, 65, 0.02);
+    }
+
+    h2 {
+      font-family: 'VT323', monospace;
+      font-size: 1.6rem;
+      color: #00ff41;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 5px #00ff41;
+    }
+
+    h2::before {
+      content: '> ';
+      color: #00aa2a;
+    }
+
+    p {
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+      color: #00dd38;
+    }
+
+    .video {
+      border: 2px solid #00ff41;
+      padding: 0.5rem;
+      background: #000;
+    }
+
+    .video iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      filter: saturate(0.5) brightness(0.9);
+    }
+
+    .video:hover iframe {
+      filter: none;
+    }
+
+    .links a {
+      display: inline-block;
+      padding: 0.5rem 1.2rem;
+      margin: 0.3rem;
+      background: transparent;
+      color: #00ff41;
+      border: 1px solid #00ff41;
+      text-decoration: none;
+      font-family: 'Fira Mono', monospace;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+    }
+
+    .links a:hover {
+      background: #00ff41;
+      color: #0a0a0a;
+      box-shadow: 0 0 15px #00ff41;
+    }
+
+    .links a::before {
+      content: '[ ';
+    }
+
+    .links a::after {
+      content: ' ]';
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #004d00;
+      font-size: 0.8rem;
+      border-top: 1px solid #004d00;
+    }
+
+    footer a {
+      color: #00ff41;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-shadow: 0 0 8px #00ff41;
+    }
+
+    .location {
+      color: #00aa2a;
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 1rem 2rem; }
+      header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <h1>Marcus Chen</h1>
+      <p class="prompt">user@buswhere:~$ <span>cat about.txt</span></p>
+      <p class="location">San Francisco, CA</p>
+    </header>
+
+    <section class="about">
+      <h2>About Me</h2>
+      <p>I'm a junior at Lowell High School in San Francisco. I'm really into transit systems and urban planning -- I've memorized most of the Muni routes and I spend way too much time reading about subway systems in other countries. I started coding in Python freshman year and haven't stopped since.</p>
+    </section>
+
+    <section class="app">
+      <h2>BusWhere</h2>
+      <p>BusWhere is a real-time transit tracker built for actual riders, not just tourists. It uses GTFS data feeds to show you where your bus really is, predicts arrival times using historical delay patterns, and alerts you when it's time to leave so you never miss your ride again.</p>
+      <p>I built it because the official Muni app is terrible and I was tired of standing in the rain waiting for a bus that was 15 minutes late. BusWhere currently covers SF Muni and BART, with plans to add AC Transit.</p>
+    </section>
+
+    <section class="video">
+      <h2>Demo</h2>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="BusWhere Demo Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </section>
+
+    <section class="links">
+      <h2>Links</h2>
+      <a href="https://github.com">GitHub</a>
+      <a href="https://example.com">Live App</a>
+    </section>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

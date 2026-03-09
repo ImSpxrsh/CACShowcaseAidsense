@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VolunteerHub | Emma Larsson</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Nunito:wght@400;600;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      color: #333;
+      background: #fff44f;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-family: 'Bubblegum Sans', cursive;
+      font-size: 3.2rem;
+      background: linear-gradient(90deg, #ff6b6b, #ffa502, #2ed573, #1e90ff, #a55eea);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    header .tagline {
+      font-size: 1.15rem;
+      color: #6b5900;
+      font-weight: 600;
+      margin-top: 0.5rem;
+    }
+
+    .sunshine-card {
+      background: #fffef5;
+      border: 4px dashed #ff6b6b;
+      border-radius: 24px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      box-shadow: 6px 6px 0 rgba(0,0,0,0.08);
+    }
+
+    .sunshine-card:nth-child(even) {
+      border-color: #2ed573;
+    }
+
+    .sunshine-card:nth-child(3n) {
+      border-color: #1e90ff;
+    }
+
+    /* doodle corner decorations */
+    .sunshine-card::before {
+      content: '\2600';
+      position: absolute;
+      top: -16px;
+      right: 16px;
+      font-size: 2rem;
+      background: #fff44f;
+      padding: 0 6px;
+    }
+
+    h2 {
+      font-family: 'Bubblegum Sans', cursive;
+      font-size: 1.7rem;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: linear-gradient(90deg, #ff6b6b, #ffa502, #2ed573, #1e90ff, #a55eea);
+      border-radius: 3px;
+      opacity: 0.6;
+    }
+
+    p {
+      line-height: 1.9;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .video iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 4px solid #2ed573;
+      border-radius: 16px;
+    }
+
+    .rainbow-divider {
+      height: 8px;
+      margin: 1.5rem auto;
+      max-width: 200px;
+      background: linear-gradient(90deg, #ff6b6b, #ffa502, #fff44f, #2ed573, #1e90ff, #a55eea);
+      border-radius: 4px;
+    }
+
+    .sticker {
+      display: inline-block;
+      font-size: 1.8rem;
+      margin: 0 4px;
+      animation: wiggle 2s ease-in-out infinite;
+    }
+
+    .sticker:nth-child(even) { animation-delay: 0.3s; }
+    .sticker:nth-child(3n) { animation-delay: 0.7s; }
+
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-5deg); }
+      50% { transform: rotate(5deg); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #6b5900;
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #e84393;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer a:hover {
+      text-decoration: underline wavy;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 1rem 2rem; }
+      header h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <h1>Emma Larsson</h1>
+      <p class="tagline">Spreading sunshine, one volunteer hour at a time!</p>
+      <div style="margin-top: 0.8rem;">
+        <span class="sticker">&#127774;</span>
+        <span class="sticker">&#127752;</span>
+        <span class="sticker">&#127808;</span>
+        <span class="sticker">&#128155;</span>
+        <span class="sticker">&#127774;</span>
+      </div>
+    </header>
+
+    <div class="sunshine-card">
+      <h2>About Me</h2>
+      <p>Hi there! I'm a junior at Southwest High School in Minneapolis, Minnesota. I've been organizing school charity events since freshman year -- from food drives to park cleanups to holiday gift wraps for families in need. I believe that everyone has time to give, they just need to know where to show up!</p>
+      <p>I'm also on the student council, run a bake sale basically every month (my lemon bars are FAMOUS), and I genuinely think community service can be fun if you do it with friends.</p>
+    </div>
+
+    <div class="rainbow-divider"></div>
+
+    <div class="sunshine-card">
+      <h2>VolunteerHub</h2>
+      <p>VolunteerHub is a web app that connects students with local volunteer opportunities. You create a profile, set your interests and availability, and the app matches you with nearby events. It also tracks your hours and lets you build a volunteer portfolio for college applications!</p>
+      <p>I built it with HTML, CSS, JavaScript, and a Firebase backend. Right now it lists 50+ opportunities in the Minneapolis area, and three other schools have started using it. My favorite feature is the "bring a friend" button -- because volunteering alone is fine, but volunteering with your bestie is way better.</p>
+    </div>
+
+    <div class="rainbow-divider"></div>
+
+    <div class="sunshine-card video">
+      <h2>Watch It In Action!</h2>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="VolunteerHub Demo Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

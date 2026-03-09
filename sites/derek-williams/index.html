@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyBuddy | Derek Williams</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&family=Shadows+Into+Light&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Architects Daughter', cursive;
+      color: #333;
+      min-height: 100vh;
+      /* Notebook paper background */
+      background-color: #f8f4e8;
+      background-image:
+        linear-gradient(#e8d8c4 1px, transparent 1px),
+        linear-gradient(90deg, transparent 79px, #e6a4a4 79px, #e6a4a4 81px, transparent 81px);
+      background-size: 100% 32px, 100% 100%;
+      background-position: 0 60px;
+    }
+
+    /* Red margin line */
+    .margin-line {
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 80px;
+      width: 2px;
+      background: #e6a4a4;
+      z-index: 0;
+      opacity: 0.6;
+    }
+
+    /* Hole punches */
+    .holes {
+      position: fixed;
+      left: 25px;
+      top: 0;
+      bottom: 0;
+      z-index: 0;
+    }
+
+    .hole {
+      width: 30px;
+      height: 30px;
+      background: #d4cbb8;
+      border-radius: 50%;
+      border: 2px solid #bbb3a0;
+      position: absolute;
+      left: 0;
+    }
+
+    .hole:nth-child(1) { top: 15%; }
+    .hole:nth-child(2) { top: 50%; }
+    .hole:nth-child(3) { top: 85%; }
+
+    .container {
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+      padding-left: 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: left;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px dashed #999;
+    }
+
+    header h1 {
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 3rem;
+      color: #2b5797;
+      margin-bottom: 0.2rem;
+      /* Looks like it was written with a pen */
+      text-decoration: underline;
+      text-decoration-style: wavy;
+      text-decoration-color: #2b5797;
+      text-underline-offset: 5px;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: #666;
+    }
+
+    .location {
+      font-size: 0.95rem;
+      color: #999;
+      margin-top: 0.2rem;
+    }
+
+    .date-corner {
+      float: right;
+      font-size: 0.9rem;
+      color: #999;
+      margin-top: -2rem;
+    }
+
+    section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      position: relative;
+    }
+
+    /* Pencil sketch border */
+    section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -5px;
+      right: -5px;
+      bottom: 0;
+      border: 2px solid transparent;
+      border-image: repeating-linear-gradient(
+        45deg,
+        #999 0px,
+        #999 2px,
+        transparent 2px,
+        transparent 6px
+      ) 2;
+      pointer-events: none;
+    }
+
+    h2 {
+      font-family: 'Shadows Into Light', cursive;
+      font-size: 1.8rem;
+      color: #2b5797;
+      margin-bottom: 1rem;
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Highlight effect like a marker */
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 2px;
+      left: -3px;
+      right: -3px;
+      height: 40%;
+      background: rgba(255, 255, 0, 0.3);
+      z-index: -1;
+    }
+
+    p {
+      line-height: 2;
+      margin-bottom: 0.8rem;
+      font-size: 1.05rem;
+    }
+
+    .note {
+      background: #fffacd;
+      border: 1px solid #ddd088;
+      padding: 1rem;
+      margin: 1rem 0;
+      transform: rotate(-1deg);
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .note::before {
+      content: '\1F4CC';
+      position: absolute;
+      top: -8px;
+      left: 10px;
+      font-size: 1.2rem;
+    }
+
+    .note p {
+      margin: 0;
+      font-size: 0.95rem;
+      color: #555;
+    }
+
+    .checkbox-list {
+      list-style: none;
+      padding: 0;
+      margin: 1rem 0;
+    }
+
+    .checkbox-list li {
+      padding: 0.3rem 0;
+      font-size: 1rem;
+    }
+
+    .checkbox-list li::before {
+      content: '\2611\FE0F ';
+    }
+
+    .video {
+      position: relative;
+    }
+
+    .video iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 3px solid #999;
+      border-radius: 0;
+    }
+
+    .links a {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      margin: 0.4rem;
+      background: #2b5797;
+      color: #fff;
+      text-decoration: none;
+      font-family: 'Architects Daughter', cursive;
+      font-size: 1rem;
+      border: 2px solid #1a3a6b;
+      transition: all 0.2s;
+      transform: rotate(-1deg);
+    }
+
+    .links a:nth-child(2) {
+      transform: rotate(1deg);
+    }
+
+    .links a:hover {
+      background: #1a3a6b;
+      transform: rotate(0deg) scale(1.05);
+    }
+
+    .doodle {
+      color: #ccc;
+      font-size: 0.8rem;
+      text-align: right;
+      margin-top: 1rem;
+      font-style: italic;
+    }
+
+    footer {
+      text-align: left;
+      padding: 2rem;
+      padding-left: 100px;
+      color: #999;
+      font-size: 0.9rem;
+      border-top: 2px dashed #ccc;
+      max-width: 750px;
+      margin: 0 auto;
+    }
+
+    footer a {
+      color: #2b5797;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline wavy;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 1rem 2rem; padding-left: 1rem; }
+      .margin-line, .holes { display: none; }
+      footer { padding-left: 1rem; }
+      header h1 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="margin-line"></div>
+  <div class="holes">
+    <div class="hole"></div>
+    <div class="hole"></div>
+    <div class="hole"></div>
+  </div>
+
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <span class="date-corner">Period 4 - CS Class</span>
+      <h1>Derek Williams</h1>
+      <p class="tagline">making study groups less painful</p>
+      <p class="location">Denver, CO</p>
+    </header>
+
+    <section class="about">
+      <h2>About Me</h2>
+      <p>Hey, I'm a senior in Denver. I've been tutoring younger students since sophomore year and honestly the hardest part isn't the teaching -- it's getting everyone in the same room at the same time. I started coding because I figured there had to be a better way to organize study sessions than a group chat with 47 unread messages.</p>
+      <div class="note" style="position: relative;">
+        <p>Also I drink way too much coffee and my favorite IDE is VS Code (fight me)</p>
+      </div>
+    </section>
+
+    <section class="app">
+      <h2>StudyBuddy</h2>
+      <p>StudyBuddy is a web app that makes it easy to create, find, and join study groups at your school. You pick your subject, set a time and place, and other students can find and join your session. It also has built-in tools like a shared whiteboard, timer, and flashcard maker.</p>
+      <ul class="checkbox-list">
+        <li>Find study groups by subject & time</li>
+        <li>Built-in shared whiteboard</li>
+        <li>Pomodoro timer for focus sessions</li>
+        <li>Flashcard creator & quizzer</li>
+        <li>Works on any device with a browser</li>
+      </ul>
+      <p>Built with Node.js, Express, and Socket.io for real-time collaboration. Currently used by about 80 students at my school.</p>
+    </section>
+
+    <section class="video">
+      <h2>Demo Video</h2>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="StudyBuddy Demo Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+      <p class="doodle">* please excuse the bad mic quality, I recorded this in the library</p>
+    </section>
+
+    <section class="links">
+      <h2>Links</h2>
+      <a href="https://github.com">GitHub</a>
+      <a href="https://example.com">Live App</a>
+    </section>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

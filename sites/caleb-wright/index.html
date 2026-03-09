@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TrailFinder | Caleb Wright</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Merriweather:wght@400;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Merriweather', serif;
+      color: #2d1f0e;
+      background: #e8dcc8;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* topo map lines effect */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      background:
+        repeating-radial-gradient(
+          ellipse at 30% 40%,
+          transparent 0px, transparent 38px,
+          rgba(46, 125, 50, 0.08) 38px, rgba(46, 125, 50, 0.08) 40px
+        ),
+        repeating-radial-gradient(
+          ellipse at 70% 60%,
+          transparent 0px, transparent 52px,
+          rgba(46, 125, 50, 0.06) 52px, rgba(46, 125, 50, 0.06) 54px
+        ),
+        repeating-radial-gradient(
+          ellipse at 50% 20%,
+          transparent 0px, transparent 44px,
+          rgba(101, 67, 33, 0.06) 44px, rgba(101, 67, 33, 0.06) 46px
+        );
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      background: #2e7d32;
+      padding: 2rem;
+      border-radius: 0;
+      border: 3px solid #1b5e20;
+      position: relative;
+    }
+
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: -12px;
+      left: 20px;
+      right: 20px;
+      height: 12px;
+      background: #5d4037;
+      border-radius: 0 0 4px 4px;
+    }
+
+    header h1 {
+      font-family: 'Black Ops One', cursive;
+      font-size: 2.8rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+    }
+
+    header .tagline {
+      font-size: 1rem;
+      color: #c8e6c9;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-top: 0.5rem;
+    }
+
+    .trail-card {
+      background: #f5f0e6;
+      border-left: 6px solid #2e7d32;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 3px 3px 0 rgba(93, 64, 55, 0.2);
+    }
+
+    .trail-card:nth-child(even) {
+      border-left-color: #5d4037;
+    }
+
+    h2 {
+      font-family: 'Black Ops One', cursive;
+      font-size: 1.4rem;
+      color: #2e7d32;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 3px solid #a5d6a7;
+    }
+
+    .trail-card:nth-child(even) h2 {
+      color: #5d4037;
+      border-bottom-color: #bcaaa4;
+    }
+
+    p {
+      line-height: 1.9;
+      margin-bottom: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #5d4037;
+      color: #f5f0e6;
+      padding: 4px 14px;
+      font-family: 'Black Ops One', cursive;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .trail-marker {
+      text-align: center;
+      font-size: 1.2rem;
+      color: #2e7d32;
+      margin: 1rem 0;
+      letter-spacing: 10px;
+      font-family: 'Black Ops One', cursive;
+    }
+
+    .video iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 3px solid #5d4037;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #795548;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer a {
+      color: #2e7d32;
+      text-decoration: none;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 1rem 2rem; }
+      header h1 { font-size: 1.8rem; letter-spacing: 2px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <h1>CALEB WRIGHT</h1>
+      <p class="tagline">Salt Lake City, UT // Eagle Scout // Trail Builder</p>
+    </header>
+
+    <div class="trail-card">
+      <h2>ABOUT ME</h2>
+      <span class="badge">EAGLE SCOUT -- TROOP 417</span>
+      <p>I'm a junior at Highland High School in Salt Lake City, Utah. I hike every single weekend -- rain, snow, or shine. I earned my Eagle Scout rank last year, and my project was rebuilding a damaged section of trail in Big Cottonwood Canyon. That experience made me realize how many amazing trails are out there that people don't know about, or can't access because of poor information.</p>
+      <p>I want to make the outdoors accessible to EVERYONE, regardless of ability level, experience, or gear budget.</p>
+    </div>
+
+    <div class="trail-marker">--- + --- + ---</div>
+
+    <div class="trail-card">
+      <h2>TRAILFINDER</h2>
+      <span class="badge">HIT THE TRAIL</span>
+      <p>TrailFinder is a web app that helps people find hiking trails matched to their exact ability level. You input your fitness level, available time, gear, and any accessibility needs, and it recommends trails with detailed info including elevation profiles, surface type, water sources, and wheelchair-accessible sections.</p>
+      <p>I built it with Python (Flask) and JavaScript, using trail data from public land databases and user contributions. The accessibility filter is the feature I'm most proud of -- my younger cousin uses a wheelchair and she helped me test every part of it. Right now it covers 200+ trails in the Wasatch Range.</p>
+    </div>
+
+    <div class="trail-marker">--- + --- + ---</div>
+
+    <div class="trail-card video">
+      <h2>TRAIL CAM (DEMO)</h2>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="TrailFinder Demo Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

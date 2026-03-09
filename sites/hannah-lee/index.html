@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BookSwap | Hannah Lee</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=IM+Fell+English+SC&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Libre Baskerville', 'Georgia', serif;
+      background: #f4ead5;
+      color: #3e2723;
+      min-height: 100vh;
+      background-image: url("data:image/svg+xml,%3Csvg width='100' height='100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100' height='100' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    }
+
+    .book-border-top, .book-border-bottom {
+      height: 40px;
+      background: #5d4037;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .book-border-top::after, .book-border-bottom::after {
+      content: "~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      color: #a1887f;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 1.2rem;
+      letter-spacing: 4px;
+      white-space: nowrap;
+      width: 200%;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 3rem 2.5rem;
+      border-left: 3px double #8d6e63;
+      border-right: 3px double #8d6e63;
+      background: linear-gradient(to right, rgba(93,64,55,0.04) 0%, transparent 5%, transparent 95%, rgba(93,64,55,0.04) 100%);
+    }
+
+    .epigraph {
+      text-align: center;
+      font-style: italic;
+      color: #795548;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+      border-top: 1px solid #bcaaa4;
+      border-bottom: 1px solid #bcaaa4;
+      font-size: 1rem;
+      line-height: 1.8;
+    }
+
+    .epigraph .attribution {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+      color: #a1887f;
+      font-style: normal;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 2.8rem;
+      color: #4e342e;
+      letter-spacing: 3px;
+      margin-bottom: 0.4rem;
+    }
+
+    header .tagline {
+      font-style: italic;
+      color: #8d6e63;
+      font-size: 1.05rem;
+    }
+
+    header .location {
+      display: inline-block;
+      margin-top: 0.6rem;
+      font-size: 0.8rem;
+      color: #a1887f;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid #bcaaa4;
+      padding: 3px 14px;
+    }
+
+    .chapter {
+      margin-bottom: 2.5rem;
+    }
+
+    .chapter h2 {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 1.4rem;
+      color: #5d4037;
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+
+    .chapter h2::before {
+      content: "\00A7";
+      position: absolute;
+      left: 0;
+      color: #a1887f;
+      font-size: 1.2rem;
+    }
+
+    .chapter p {
+      line-height: 2;
+      font-size: 0.95rem;
+      text-align: justify;
+      text-indent: 2rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .chapter p:first-of-type::first-letter {
+      font-size: 3rem;
+      font-family: 'IM Fell English SC', serif;
+      float: left;
+      margin-right: 6px;
+      margin-top: 4px;
+      line-height: 1;
+      color: #5d4037;
+    }
+
+    .ornament {
+      text-align: center;
+      color: #bcaaa4;
+      font-size: 1.5rem;
+      margin: 1.5rem 0;
+      letter-spacing: 8px;
+    }
+
+    .video-section {
+      margin-bottom: 2.5rem;
+    }
+
+    .video-section h2 {
+      font-family: 'IM Fell English SC', serif;
+      font-size: 1.4rem;
+      color: #5d4037;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .video-frame {
+      border: 4px solid #8d6e63;
+      padding: 6px;
+      background: #5d4037;
+    }
+
+    .video-frame iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      display: block;
+    }
+
+    .links {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .links a {
+      display: inline-block;
+      padding: 0.5rem 1.8rem;
+      margin: 0.3rem;
+      background: #5d4037;
+      color: #f4ead5;
+      text-decoration: none;
+      font-family: 'IM Fell English SC', serif;
+      font-size: 0.95rem;
+      letter-spacing: 1px;
+      transition: background 0.2s;
+    }
+
+    .links a:hover {
+      background: #3e2723;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #a1887f;
+      font-size: 0.85rem;
+      font-style: italic;
+    }
+
+    footer a {
+      color: #5d4037;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 2rem 1.2rem; }
+      header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="book-border-top"></div>
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <div class="epigraph">
+      "A reader lives a thousand lives before he dies. The man who never reads lives only one."
+      <span class="attribution">&mdash; George R.R. Martin</span>
+    </div>
+
+    <header>
+      <h1>Hannah Lee</h1>
+      <p class="tagline">Sharing stories, one swap at a time.</p>
+      <span class="location">Portland, OR</span>
+    </header>
+
+    <div class="chapter">
+      <h2>About the Author</h2>
+      <p>Hannah is a senior at Lincoln High School in Portland, Oregon. She reads over 50 books a year and runs the school library volunteer program, organizing reading drives and book fairs for underserved communities. Her bedroom has more bookshelves than wall space, and she wouldn't have it any other way. She believes every student deserves access to great stories, regardless of their family's budget.</p>
+    </div>
+
+    <div class="ornament">&#10045; &#10045; &#10045;</div>
+
+    <div class="chapter">
+      <h2>BookSwap</h2>
+      <p>BookSwap is a community-powered platform where students can trade books they've finished for ones they want to read. Instead of letting great books collect dust on a shelf, BookSwap connects readers in the same area and facilitates easy exchanges. Users list their available books, browse what others have, and arrange swaps at school or local meetup points.</p>
+      <p>The app includes reading lists, genre matching, and a reputation system so users can build trust. Hannah built it with Node.js and a simple database, and it's already being used by over 200 students across three Portland high schools.</p>
+    </div>
+
+    <div class="ornament">&#10045; &#10045; &#10045;</div>
+
+    <div class="video-section">
+      <h2>Watch the Demo</h2>
+      <div class="video-frame">
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="BookSwap Demo Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="https://github.com">GitHub</a>
+      <a href="https://example.com">Live App</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <div class="book-border-bottom"></div>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

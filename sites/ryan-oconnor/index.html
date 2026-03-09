@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ParkSpot | Ryan O'Connor</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Archivo+Black&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Oswald', 'Arial Narrow', sans-serif;
+      background: #1a1a1a;
+      color: #d4d4d4;
+      min-height: 100vh;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 49px, #2a2a2a 49px, #2a2a2a 50px),
+        repeating-linear-gradient(90deg, transparent, transparent 49px, #2a2a2a 49px, #2a2a2a 50px);
+    }
+
+    .taxi-stripe {
+      height: 12px;
+      background: repeating-linear-gradient(90deg, #f5c518 0px, #f5c518 30px, #1a1a1a 30px, #1a1a1a 45px);
+      position: sticky;
+      top: 0;
+      z-index: 99;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    header {
+      border: 3px solid #f5c518;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      text-align: center;
+      position: relative;
+      background: rgba(0,0,0,0.6);
+    }
+
+    header::before {
+      content: "EXTRA! EXTRA!";
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #f5c518;
+      color: #1a1a1a;
+      padding: 2px 18px;
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+    }
+
+    header h1 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 3.5rem;
+      color: #f5c518;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      line-height: 1;
+      margin-bottom: 0.3rem;
+      text-shadow: 3px 3px 0 #000;
+    }
+
+    header .tagline {
+      font-size: 1.1rem;
+      color: #999;
+      font-style: italic;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .columns {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .col {
+      border-left: 3px solid #f5c518;
+      padding-left: 1.2rem;
+    }
+
+    .col h2 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.3rem;
+      color: #f5c518;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 0.8rem;
+      border-bottom: 2px dashed #444;
+      padding-bottom: 0.4rem;
+    }
+
+    .col p {
+      line-height: 1.7;
+      font-size: 0.95rem;
+      color: #bbb;
+      text-align: justify;
+    }
+
+    .col p::first-letter {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #f5c518;
+      float: left;
+      margin-right: 4px;
+      line-height: 1;
+    }
+
+    .full-width {
+      border: 2px solid #333;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .full-width h2 {
+      font-family: 'Archivo Black', sans-serif;
+      font-size: 1.3rem;
+      color: #f5c518;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .video-wrapper {
+      border: 3px solid #f5c518;
+      padding: 4px;
+      background: #000;
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      display: block;
+    }
+
+    .location-badge {
+      display: inline-block;
+      background: #f5c518;
+      color: #1a1a1a;
+      padding: 4px 16px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+
+    .links {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .links a {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      margin: 0.3rem;
+      border: 2px solid #f5c518;
+      color: #f5c518;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 2px;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .links a:hover {
+      background: #f5c518;
+      color: #1a1a1a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 3px solid #333;
+      color: #666;
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+    }
+
+    footer a {
+      color: #f5c518;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .columns { grid-template-columns: 1fr; }
+      header h1 { font-size: 2.2rem; }
+      .container { padding: 2rem 1rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="taxi-stripe"></div>
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <h1>Ryan O'Connor</h1>
+      <p class="tagline">No more circling the block.</p>
+      <span class="location-badge">New York, NY</span>
+    </header>
+
+    <div class="columns">
+      <div class="col">
+        <h2>About Me</h2>
+        <p>Junior at Stuyvesant High School in Manhattan. I sometimes drive my dad's yellow cab on weekends, and let me tell you — finding parking in this city is absolute torture. I've spent way too many hours circling blocks in Midtown just to find a spot. That frustration is exactly what pushed me to build ParkSpot. When I'm not coding or driving, I'm eating dollar pizza and arguing about the Knicks.</p>
+      </div>
+      <div class="col">
+        <h2>ParkSpot</h2>
+        <p>ParkSpot is a crowdsourced parking app designed for dense urban areas like NYC. Users report when they leave a parking spot, and drivers nearby get real-time alerts. The app uses geolocation and a clever prediction algorithm trained on street-sweeping schedules, event calendars, and historical data to show you where spots are most likely to open up. No more burning gas driving in circles — just park and go.</p>
+      </div>
+    </div>
+
+    <div class="full-width">
+      <h2>Demo Video</h2>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="ParkSpot Demo Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="https://github.com">GitHub</a>
+      <a href="https://example.com">Live App</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

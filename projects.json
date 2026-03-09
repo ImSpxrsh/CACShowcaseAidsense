@@ -1,0 +1,213 @@
+[
+  {
+    "slug": "jane-doe",
+    "name": "Jane Doe",
+    "appName": "EcoTracker",
+    "description": "An app that helps students track and reduce their school's carbon footprint through gamified challenges.",
+    "thumbnail": "sites/jane-doe/thumbnail.png",
+    "location": { "lat": 38.9072, "lng": -77.0369, "label": "Washington, DC" },
+    "district": "DC-AL",
+    "state": "DC",
+    "tags": ["environment", "education"]
+  },
+  {
+    "slug": "marcus-chen",
+    "name": "Marcus Chen",
+    "appName": "BusWhere",
+    "description": "Real-time school bus tracking so parents and students always know when the bus is coming.",
+    "location": { "lat": 37.7749, "lng": -122.4194, "label": "San Francisco, CA" },
+    "district": "CA-11",
+    "state": "CA",
+    "tags": ["transportation", "utility"]
+  },
+  {
+    "slug": "priya-patel",
+    "name": "Priya Patel",
+    "appName": "MedMinder",
+    "description": "Medication reminder app for elderly family members with simple large-button interface.",
+    "location": { "lat": 33.749, "lng": -84.388, "label": "Atlanta, GA" },
+    "district": "GA-05",
+    "state": "GA",
+    "tags": ["health", "accessibility"]
+  },
+  {
+    "slug": "tyler-jackson",
+    "name": "Tyler Jackson",
+    "appName": "HoopStats",
+    "description": "Track your basketball stats and compare with friends in real time.",
+    "location": { "lat": 41.8781, "lng": -87.6298, "label": "Chicago, IL" },
+    "district": "IL-07",
+    "state": "IL",
+    "tags": ["sports", "social"]
+  },
+  {
+    "slug": "sofia-rodriguez",
+    "name": "Sofia Rodriguez",
+    "appName": "LinguaFlip",
+    "description": "Flashcard app that uses AI to generate practice sentences in any language you're learning.",
+    "location": { "lat": 29.7604, "lng": -95.3698, "label": "Houston, TX" },
+    "district": "TX-18",
+    "state": "TX",
+    "tags": ["education", "languages"]
+  },
+  {
+    "slug": "aiden-murphy",
+    "name": "Aiden Murphy",
+    "appName": "PotholeAlert",
+    "description": "Report potholes in your city with a photo and GPS location, sent straight to local government.",
+    "location": { "lat": 42.3601, "lng": -71.0589, "label": "Boston, MA" },
+    "district": "MA-07",
+    "state": "MA",
+    "tags": ["civic", "infrastructure"]
+  },
+  {
+    "slug": "zoe-kim",
+    "name": "Zoe Kim",
+    "appName": "PlantPal",
+    "description": "Identify plants by taking a photo and get care instructions instantly.",
+    "location": { "lat": 47.6062, "lng": -122.3321, "label": "Seattle, WA" },
+    "district": "WA-07",
+    "state": "WA",
+    "tags": ["nature", "AI"]
+  },
+  {
+    "slug": "derek-williams",
+    "name": "Derek Williams",
+    "appName": "StudyBuddy",
+    "description": "Match with classmates to form study groups based on your schedule and subjects.",
+    "location": { "lat": 39.7392, "lng": -104.9903, "label": "Denver, CO" },
+    "district": "CO-01",
+    "state": "CO",
+    "tags": ["education", "social"]
+  },
+  {
+    "slug": "mia-johnson",
+    "name": "Mia Johnson",
+    "appName": "SafeWalk",
+    "description": "Share your live location with trusted contacts when walking alone at night.",
+    "location": { "lat": 36.1627, "lng": -86.7816, "label": "Nashville, TN" },
+    "district": "TN-05",
+    "state": "TN",
+    "tags": ["safety", "utility"]
+  },
+  {
+    "slug": "noah-garcia",
+    "name": "Noah Garcia",
+    "appName": "FridgeChef",
+    "description": "Snap a photo of your fridge and get recipe suggestions from what you already have.",
+    "location": { "lat": 35.0844, "lng": -106.6504, "label": "Albuquerque, NM" },
+    "district": "NM-01",
+    "state": "NM",
+    "tags": ["food", "AI"]
+  },
+  {
+    "slug": "emma-larsson",
+    "name": "Emma Larsson",
+    "appName": "VolunteerHub",
+    "description": "Find and sign up for volunteer opportunities in your neighborhood.",
+    "location": { "lat": 44.9778, "lng": -93.265, "label": "Minneapolis, MN" },
+    "district": "MN-05",
+    "state": "MN",
+    "tags": ["civic", "community"]
+  },
+  {
+    "slug": "jordan-brooks",
+    "name": "Jordan Brooks",
+    "appName": "BeatDrop",
+    "description": "Make beats on your phone and share them with a community of teen producers.",
+    "location": { "lat": 33.4484, "lng": -112.074, "label": "Phoenix, AZ" },
+    "district": "AZ-03",
+    "state": "AZ",
+    "tags": ["music", "creative"]
+  },
+  {
+    "slug": "lily-tran",
+    "name": "Lily Tran",
+    "appName": "DoodleShare",
+    "description": "A collaborative drawing app where friends can doodle on the same canvas in real time.",
+    "location": { "lat": 32.7157, "lng": -117.1611, "label": "San Diego, CA" },
+    "district": "CA-51",
+    "state": "CA",
+    "tags": ["art", "social"]
+  },
+  {
+    "slug": "caleb-wright",
+    "name": "Caleb Wright",
+    "appName": "TrailFinder",
+    "description": "Discover hiking trails near you with difficulty ratings, photos, and live conditions.",
+    "location": { "lat": 40.7608, "lng": -111.891, "label": "Salt Lake City, UT" },
+    "district": "UT-02",
+    "state": "UT",
+    "tags": ["outdoors", "health"]
+  },
+  {
+    "slug": "ava-mitchell",
+    "name": "Ava Mitchell",
+    "appName": "MoodLog",
+    "description": "Track your mood daily and see patterns over time with colorful charts.",
+    "location": { "lat": 35.2271, "lng": -80.8431, "label": "Charlotte, NC" },
+    "district": "NC-12",
+    "state": "NC",
+    "tags": ["health", "wellness"]
+  },
+  {
+    "slug": "ryan-oconnor",
+    "name": "Ryan O'Connor",
+    "appName": "ParkSpot",
+    "description": "Crowdsourced parking availability so you never circle the block again.",
+    "location": { "lat": 40.7128, "lng": -74.006, "label": "New York, NY" },
+    "district": "NY-10",
+    "state": "NY",
+    "tags": ["transportation", "utility"]
+  },
+  {
+    "slug": "hannah-lee",
+    "name": "Hannah Lee",
+    "appName": "BookSwap",
+    "description": "Trade books with other students at your school instead of buying new ones.",
+    "location": { "lat": 45.5051, "lng": -122.675, "label": "Portland, OR" },
+    "district": "OR-03",
+    "state": "OR",
+    "tags": ["education", "sustainability"]
+  },
+  {
+    "slug": "elijah-foster",
+    "name": "Elijah Foster",
+    "appName": "FixItUp",
+    "description": "Step-by-step repair guides for common household items to reduce waste.",
+    "location": { "lat": 30.2672, "lng": -97.7431, "label": "Austin, TX" },
+    "district": "TX-21",
+    "state": "TX",
+    "tags": ["sustainability", "DIY"]
+  },
+  {
+    "slug": "chloe-bennett",
+    "name": "Chloe Bennett",
+    "appName": "StarGazer",
+    "description": "Point your phone at the sky and identify constellations, planets, and satellites.",
+    "location": { "lat": 36.1699, "lng": -115.1398, "label": "Las Vegas, NV" },
+    "district": "NV-01",
+    "state": "NV",
+    "tags": ["science", "education"]
+  },
+  {
+    "slug": "sam-nakamura",
+    "name": "Sam Nakamura",
+    "appName": "CodeCoach",
+    "description": "An AI tutor that helps beginners debug their code with friendly explanations.",
+    "location": { "lat": 21.3069, "lng": -157.8583, "label": "Honolulu, HI" },
+    "district": "HI-01",
+    "state": "HI",
+    "tags": ["education", "coding"]
+  },
+  {
+    "slug": "olivia-martinez",
+    "name": "Olivia Martinez",
+    "appName": "PetWatch",
+    "description": "Connect lost pets with their owners through community alerts and photo matching.",
+    "location": { "lat": 25.7617, "lng": -80.1918, "label": "Miami, FL" },
+    "district": "FL-27",
+    "state": "FL",
+    "tags": ["community", "pets"]
+  }
+]

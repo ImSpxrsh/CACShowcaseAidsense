@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BeatDrop | Jordan Brooks</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      color: #f0e6ff;
+      background: #120024;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* animated waveform bg lines */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      background:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 58px,
+          rgba(255, 0, 128, 0.06) 58px,
+          rgba(255, 0, 128, 0.06) 60px
+        );
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', monospace;
+      font-size: 3rem;
+      font-weight: 900;
+      color: #ff0080;
+      text-shadow:
+        0 0 10px #ff0080,
+        0 0 40px #ff0080,
+        0 0 80px #ff006680;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+    }
+
+    header .tagline {
+      font-size: 1.2rem;
+      color: #bf5fff;
+      margin-top: 0.5rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    /* waveform decoration */
+    .waveform {
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      gap: 3px;
+      height: 40px;
+      margin: 1.5rem auto;
+      max-width: 300px;
+    }
+
+    .waveform .bar {
+      width: 4px;
+      background: linear-gradient(to top, #ff0080, #bf5fff);
+      border-radius: 2px;
+      animation: wave 1.2s ease-in-out infinite;
+    }
+
+    .waveform .bar:nth-child(1) { height: 15px; animation-delay: 0s; }
+    .waveform .bar:nth-child(2) { height: 28px; animation-delay: 0.1s; }
+    .waveform .bar:nth-child(3) { height: 35px; animation-delay: 0.15s; }
+    .waveform .bar:nth-child(4) { height: 20px; animation-delay: 0.2s; }
+    .waveform .bar:nth-child(5) { height: 40px; animation-delay: 0.25s; }
+    .waveform .bar:nth-child(6) { height: 25px; animation-delay: 0.3s; }
+    .waveform .bar:nth-child(7) { height: 32px; animation-delay: 0.35s; }
+    .waveform .bar:nth-child(8) { height: 18px; animation-delay: 0.4s; }
+    .waveform .bar:nth-child(9) { height: 38px; animation-delay: 0.45s; }
+    .waveform .bar:nth-child(10) { height: 22px; animation-delay: 0.5s; }
+    .waveform .bar:nth-child(11) { height: 30px; animation-delay: 0.55s; }
+    .waveform .bar:nth-child(12) { height: 12px; animation-delay: 0.6s; }
+    .waveform .bar:nth-child(13) { height: 35px; animation-delay: 0.65s; }
+    .waveform .bar:nth-child(14) { height: 26px; animation-delay: 0.7s; }
+    .waveform .bar:nth-child(15) { height: 16px; animation-delay: 0.75s; }
+
+    @keyframes wave {
+      0%, 100% { transform: scaleY(1); }
+      50% { transform: scaleY(0.4); }
+    }
+
+    .neon-card {
+      background: rgba(30, 0, 60, 0.8);
+      border: 2px solid #ff0080;
+      border-radius: 2px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow:
+        0 0 15px rgba(255, 0, 128, 0.2),
+        inset 0 0 15px rgba(255, 0, 128, 0.05);
+    }
+
+    .neon-card:nth-child(even) {
+      border-color: #bf5fff;
+      box-shadow:
+        0 0 15px rgba(191, 95, 255, 0.2),
+        inset 0 0 15px rgba(191, 95, 255, 0.05);
+    }
+
+    h2 {
+      font-family: 'Orbitron', monospace;
+      font-size: 1.3rem;
+      color: #ff0080;
+      text-shadow: 0 0 10px rgba(255, 0, 128, 0.5);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+    }
+
+    .neon-card:nth-child(even) h2 {
+      color: #bf5fff;
+      text-shadow: 0 0 10px rgba(191, 95, 255, 0.5);
+    }
+
+    p {
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1.1rem;
+    }
+
+    .video iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 2px solid #ff0080;
+      box-shadow: 0 0 20px rgba(255, 0, 128, 0.3);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #6b3a7d;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer a {
+      color: #ff0080;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-shadow: 0 0 8px rgba(255, 0, 128, 0.6);
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 1rem 2rem; }
+      header h1 { font-size: 1.8rem; letter-spacing: 3px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <h1>Jordan Brooks</h1>
+      <p class="tagline">Phoenix, AZ // Producer // Coder</p>
+      <div class="waveform">
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+        <div class="bar"></div><div class="bar"></div><div class="bar"></div>
+      </div>
+    </header>
+
+    <div class="neon-card">
+      <h2>// About Me</h2>
+      <p>I'm a senior at Mountain Pointe High School in Phoenix, Arizona. I've been making beats since 6th grade when my older brother left his MIDI controller at home and never asked for it back. Since then I've produced over 200 tracks, built a following on SoundCloud, and even sold a few beats to local rappers.</p>
+      <p>I taught myself Python and JavaScript along the way because I got tired of using other people's tools and wanted to build my own. BeatDrop is the result of that energy.</p>
+    </div>
+
+    <div class="neon-card">
+      <h2>// BeatDrop</h2>
+      <p>BeatDrop is a collaborative beat-making web app where you and your friends can build tracks together in real-time. Think Google Docs but for music. You get a 16-step sequencer, a library of drum kits and synth sounds, and a chat panel so you can vibe with your collaborators.</p>
+      <p>I built it using the Web Audio API, WebSockets for real-time sync, and React on the front end. The craziest part is that two people in completely different cities can lay down a beat together with almost no lag. My friends and I use it literally every weekend.</p>
+    </div>
+
+    <div class="neon-card video">
+      <h2>// Watch the Drop</h2>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="BeatDrop Demo Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CodeCoach | Sam Nakamura</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;600;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(180deg, #006d77 0%, #0097a7 40%, #26c6da 100%);
+      color: #e0f7fa;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    /* Palm tree decorations */
+    body::before, body::after {
+      content: "";
+      position: fixed;
+      bottom: 80px;
+      width: 120px;
+      height: 200px;
+      z-index: 0;
+      pointer-events: none;
+    }
+
+    body::before {
+      left: 20px;
+      background:
+        radial-gradient(ellipse at 50% 30%, transparent 40%, transparent 100%),
+        linear-gradient(175deg, transparent 45%, #2e7d32 45.5%, #2e7d32 46%, transparent 46.5%),
+        linear-gradient(135deg, transparent 40%, #388e3c 40.5%, #388e3c 42%, transparent 42.5%),
+        linear-gradient(215deg, transparent 40%, #388e3c 40.5%, #388e3c 42%, transparent 42.5%),
+        linear-gradient(160deg, transparent 30%, #43a047 30.5%, #43a047 32%, transparent 32.5%),
+        linear-gradient(200deg, transparent 30%, #43a047 30.5%, #43a047 32%, transparent 32.5%),
+        linear-gradient(180deg, transparent 0%, transparent 40%, #5d4037 40%, #5d4037 42%, #4e342e 42%, #4e342e 100%);
+      opacity: 0.25;
+    }
+
+    body::after {
+      right: 20px;
+      background:
+        linear-gradient(185deg, transparent 45%, #2e7d32 45.5%, #2e7d32 46%, transparent 46.5%),
+        linear-gradient(225deg, transparent 40%, #388e3c 40.5%, #388e3c 42%, transparent 42.5%),
+        linear-gradient(145deg, transparent 40%, #388e3c 40.5%, #388e3c 42%, transparent 42.5%),
+        linear-gradient(200deg, transparent 30%, #43a047 30.5%, #43a047 32%, transparent 32.5%),
+        linear-gradient(160deg, transparent 30%, #43a047 30.5%, #43a047 32%, transparent 32.5%),
+        linear-gradient(180deg, transparent 0%, transparent 40%, #5d4037 40%, #5d4037 42%, #4e342e 42%, #4e342e 100%);
+      opacity: 0.25;
+      transform: scaleX(-1);
+    }
+
+    /* Wave pattern at bottom */
+    .wave-container {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 80px;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .wave {
+      position: absolute;
+      bottom: 0;
+      left: -5%;
+      width: 110%;
+      height: 80px;
+      animation: wave-motion 6s ease-in-out infinite alternate;
+    }
+
+    .wave::before {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(ellipse at 10% 0%, #80deea 0%, transparent 30%),
+        radial-gradient(ellipse at 30% 10%, #4dd0e1 0%, transparent 25%),
+        radial-gradient(ellipse at 50% 0%, #80deea 0%, transparent 30%),
+        radial-gradient(ellipse at 70% 10%, #4dd0e1 0%, transparent 25%),
+        radial-gradient(ellipse at 90% 0%, #80deea 0%, transparent 30%);
+      opacity: 0.6;
+    }
+
+    .wave-bg {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 40px;
+      background: linear-gradient(180deg, rgba(0,150,136,0.3), rgba(0,150,136,0.5));
+    }
+
+    @keyframes wave-motion {
+      0% { transform: translateX(0) translateY(0); }
+      100% { transform: translateX(2%) translateY(-3px); }
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-family: 'Pacifico', cursive;
+      font-size: 3.2rem;
+      color: #ffffff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      margin-bottom: 0.3rem;
+    }
+
+    header .tagline {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      font-weight: 400;
+    }
+
+    header .location {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 5px 18px;
+      font-size: 0.8rem;
+      color: #fff;
+      background: rgba(255,255,255,0.15);
+      border-radius: 999px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .island-card {
+      background: rgba(255,255,255,0.12);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .island-card h2 {
+      font-family: 'Pacifico', cursive;
+      font-size: 1.5rem;
+      color: #ff8a65;
+      margin-bottom: 0.8rem;
+    }
+
+    .island-card p {
+      line-height: 1.9;
+      font-size: 0.95rem;
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+    }
+
+    .coral-divider {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #ff8a65;
+      margin: 1rem 0;
+      opacity: 0.5;
+      letter-spacing: 12px;
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 12px;
+      display: block;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+    }
+
+    .links {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .links a {
+      display: inline-block;
+      padding: 0.6rem 1.8rem;
+      margin: 0.3rem;
+      background: #ff8a65;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.2s;
+      box-shadow: 0 4px 12px rgba(255,138,101,0.3);
+    }
+
+    .links a:hover {
+      background: #ff7043;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(255,138,101,0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: rgba(255,255,255,0.6);
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #ffffff;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 1rem 5rem; }
+      header h1 { font-size: 2.2rem; }
+      body::before, body::after { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="wave-container">
+    <div class="wave"></div>
+    <div class="wave-bg"></div>
+  </div>
+
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <h1>Sam Nakamura</h1>
+      <p class="tagline">Coding from the islands, for the islands.</p>
+      <span class="location">Honolulu, HI</span>
+    </header>
+
+    <div class="island-card">
+      <h2>About Me</h2>
+      <p>Senior at Punahou School in Honolulu, Hawaii. I learned to code entirely from free online courses — freeCodeCamp, The Odin Project, CS50, you name it. Growing up on the islands, I saw how many kids here don't have access to coding classes or tech mentorship. The nearest tech meetup is literally across an ocean. That's why I built CodeCoach — to bring the tech world to every kid on every island.</p>
+    </div>
+
+    <div class="coral-divider">~ ~ ~ ~ ~</div>
+
+    <div class="island-card">
+      <h2>CodeCoach</h2>
+      <p>CodeCoach is a peer-to-peer coding mentorship platform designed for students in Hawaii and other remote or rural areas. Experienced student coders sign up as coaches, and beginners can book free 30-minute video sessions to get help with everything from HTML basics to AP Computer Science homework.</p>
+      <p>The platform matches mentors and mentees based on skill level, language, and schedule. It includes a built-in code editor for pair programming, progress tracking, and badges to keep learners motivated. Built with Next.js, Socket.io for real-time collaboration, and PostgreSQL.</p>
+    </div>
+
+    <div class="coral-divider">~ ~ ~ ~ ~</div>
+
+    <div class="island-card">
+      <h2>Demo</h2>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="CodeCoach Demo Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="https://github.com">GitHub</a>
+      <a href="https://example.com">Live App</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

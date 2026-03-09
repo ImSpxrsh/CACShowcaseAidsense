@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DoodleShare | Lily Tran</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Coming+Soon&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Coming Soon', cursive;
+      color: #2d3436;
+      background: #fdf6e3;
+      min-height: 100vh;
+      /* notebook paper lines */
+      background-image:
+        repeating-linear-gradient(
+          transparent,
+          transparent 27px,
+          #c8e0f4 27px,
+          #c8e0f4 28px
+        );
+      background-size: 100% 28px;
+      position: relative;
+    }
+
+    /* red margin line */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      left: 80px;
+      width: 2px;
+      background: #ff7675;
+      z-index: 0;
+      opacity: 0.5;
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    header h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 4rem;
+      font-weight: 700;
+      color: #e17055;
+      transform: rotate(-2deg);
+      display: inline-block;
+    }
+
+    header .tagline {
+      font-size: 1.2rem;
+      color: #636e72;
+      transform: rotate(1deg);
+      display: block;
+      margin-top: 0.3rem;
+    }
+
+    .sketch-card {
+      background: #fff9ed;
+      padding: 1.8rem;
+      margin-bottom: 2rem;
+      position: relative;
+      /* wobbly border using multiple box-shadows */
+      border: 3px solid transparent;
+      border-image: repeating-linear-gradient(
+        90deg,
+        #e17055 0px, #e17055 8px,
+        #00b894 8px, #00b894 16px,
+        #6c5ce7 16px, #6c5ce7 24px,
+        #fdcb6e 24px, #fdcb6e 32px
+      ) 4;
+    }
+
+    .sketch-card:nth-child(even) {
+      border-image: repeating-linear-gradient(
+        90deg,
+        #0984e3 0px, #0984e3 8px,
+        #fd79a8 8px, #fd79a8 16px,
+        #00cec9 16px, #00cec9 24px,
+        #e17055 24px, #e17055 32px
+      ) 4;
+    }
+
+    /* tape strips */
+    .sketch-card::before {
+      content: '';
+      position: absolute;
+      top: -8px;
+      left: 30px;
+      width: 60px;
+      height: 20px;
+      background: rgba(253, 203, 110, 0.6);
+      transform: rotate(-3deg);
+      border-radius: 2px;
+    }
+
+    .sketch-card::after {
+      content: '';
+      position: absolute;
+      top: -6px;
+      right: 40px;
+      width: 50px;
+      height: 18px;
+      background: rgba(108, 92, 231, 0.3);
+      transform: rotate(2deg);
+      border-radius: 2px;
+    }
+
+    h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 2rem;
+      margin-bottom: 0.8rem;
+      transform: rotate(-1deg);
+      display: inline-block;
+    }
+
+    .sketch-card:nth-child(1) h2 { color: #6c5ce7; }
+    .sketch-card:nth-child(2) h2 { color: #e17055; }
+    .sketch-card:nth-child(3) h2 { color: #00b894; }
+
+    p {
+      line-height: 1.9;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+
+    .doodle-stars {
+      text-align: center;
+      font-size: 1.5rem;
+      margin: 0.5rem 0;
+      letter-spacing: 6px;
+      color: #fdcb6e;
+    }
+
+    .video iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 3px dashed #e17055;
+      border-radius: 6px;
+    }
+
+    .crayon-label {
+      display: inline-block;
+      padding: 3px 12px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      transform: rotate(-1deg);
+      margin-bottom: 0.5rem;
+    }
+
+    .crayon-label.pink { background: #fd79a8; color: white; }
+    .crayon-label.green { background: #00b894; color: white; }
+    .crayon-label.blue { background: #0984e3; color: white; }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #b2bec3;
+      font-size: 0.95rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer a {
+      color: #e17055;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline wavy #6c5ce7;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 1rem 2rem; }
+      header h1 { font-size: 2.8rem; }
+      body::before { left: 30px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <h1>Lily Tran ~*</h1>
+      <span class="tagline">doodling her way through San Diego, CA</span>
+      <div class="doodle-stars">~ * ~ * ~ * ~</div>
+    </header>
+
+    <div class="sketch-card">
+      <h2>About Me!!</h2>
+      <span class="crayon-label pink">Sophomore @ Mission Bay HS</span>
+      <p>Hiii! I'm Lily and I'm a sophomore in San Diego. I've been drawing since before I could write (my mom has proof). I run my school's art club and I'm really into digital illustration -- I use Procreate on my iPad basically 24/7. I love collaborative creativity, where multiple people add to the same piece of art and it becomes something none of them could've made alone.</p>
+      <p>That idea is exactly what inspired DoodleShare!</p>
+    </div>
+
+    <div class="sketch-card">
+      <h2>DoodleShare</h2>
+      <span class="crayon-label green">draw together, anywhere!</span>
+      <p>DoodleShare is a collaborative drawing app where multiple people can doodle on the same canvas in real-time! You create a room, share a link, and everyone can draw together. It has brushes, colors, layers, stickers, and a chat sidebar so you can coordinate (or just be silly).</p>
+      <p>I built it with HTML Canvas, Socket.IO for the real-time stuff, and Express on the backend. My art club uses it for warm-up exercises and it's SO fun watching everyone's styles mix together. The best part? You can replay the whole drawing process as a timelapse!</p>
+    </div>
+
+    <div class="sketch-card video">
+      <h2>See It!!</h2>
+      <span class="crayon-label blue">demo time~</span>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="DoodleShare Demo Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

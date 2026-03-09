@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StarGazer | Chloe Bennett</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Exo+2:wght@300;400&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Exo 2', sans-serif;
+      background: #0a0a2e;
+      color: #c8d6e5;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Twinkling stars */
+    .stars, .stars2, .stars3 {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .stars {
+      background: radial-gradient(1px 1px at 20px 30px, #fff, transparent),
+                  radial-gradient(1px 1px at 40px 70px, #fff, transparent),
+                  radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+                  radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+                  radial-gradient(1px 1px at 160px 30px, #fff, transparent),
+                  radial-gradient(1.5px 1.5px at 200px 60px, #aad, transparent),
+                  radial-gradient(1px 1px at 250px 20px, #fff, transparent),
+                  radial-gradient(1px 1px at 300px 90px, #fff, transparent),
+                  radial-gradient(1.5px 1.5px at 350px 50px, #fff, transparent),
+                  radial-gradient(1px 1px at 400px 80px, #fff, transparent),
+                  radial-gradient(1px 1px at 450px 10px, #fff, transparent),
+                  radial-gradient(1px 1px at 500px 70px, #ddf, transparent);
+      background-size: 550px 100px;
+      animation: twinkle 4s ease-in-out infinite alternate;
+    }
+
+    .stars2 {
+      background: radial-gradient(1px 1px at 10px 10px, #fff, transparent),
+                  radial-gradient(1px 1px at 150px 150px, #fff, transparent),
+                  radial-gradient(1.5px 1.5px at 60px 120px, #bbf, transparent),
+                  radial-gradient(1px 1px at 210px 50px, #fff, transparent),
+                  radial-gradient(1px 1px at 370px 130px, #fff, transparent),
+                  radial-gradient(2px 2px at 450px 30px, #eef, transparent),
+                  radial-gradient(1px 1px at 100px 180px, #fff, transparent);
+      background-size: 500px 200px;
+      animation: twinkle 6s ease-in-out infinite alternate-reverse;
+    }
+
+    .stars3 {
+      background: radial-gradient(1.5px 1.5px at 75px 75px, #fff, transparent),
+                  radial-gradient(1px 1px at 275px 100px, #fff, transparent),
+                  radial-gradient(2px 2px at 175px 175px, #ccf, transparent),
+                  radial-gradient(1px 1px at 475px 25px, #fff, transparent),
+                  radial-gradient(1px 1px at 325px 175px, #fff, transparent);
+      background-size: 550px 200px;
+      animation: twinkle 5s ease-in-out 1s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.5; }
+      100% { opacity: 1; }
+    }
+
+    .nebula {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, rgba(88, 24, 69, 0.15) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 20%, rgba(25, 42, 86, 0.2) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(40, 20, 80, 0.15) 0%, transparent 50%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    header h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      background: linear-gradient(135deg, #a78bfa, #60a5fa, #f9a8d4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-shadow: none;
+      margin-bottom: 0.3rem;
+    }
+
+    header .tagline {
+      font-weight: 300;
+      font-size: 1.1rem;
+      color: #7c83a8;
+      letter-spacing: 3px;
+    }
+
+    header .location {
+      display: inline-block;
+      margin-top: 0.8rem;
+      padding: 4px 18px;
+      font-size: 0.75rem;
+      color: #a78bfa;
+      border: 1px solid rgba(167,139,250,0.3);
+      border-radius: 999px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .section {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .section h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 1.2rem;
+      color: #a78bfa;
+      margin-bottom: 1rem;
+      letter-spacing: 2px;
+      text-shadow: 0 0 20px rgba(167,139,250,0.4);
+    }
+
+    .section p {
+      line-height: 1.9;
+      font-size: 0.95rem;
+      font-weight: 300;
+      margin-bottom: 0.8rem;
+    }
+
+    .glow-divider {
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(167,139,250,0.5), transparent);
+      margin: 0.5rem 0 1.5rem;
+      border-radius: 2px;
+    }
+
+    .planet-decoration {
+      text-align: center;
+      font-size: 2rem;
+      margin: 1rem 0;
+      opacity: 0.3;
+      letter-spacing: 20px;
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 8px;
+      display: block;
+      box-shadow: 0 0 30px rgba(96, 165, 250, 0.15);
+    }
+
+    .links {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .links a {
+      display: inline-block;
+      padding: 0.6rem 1.8rem;
+      margin: 0.3rem;
+      background: linear-gradient(135deg, rgba(167,139,250,0.2), rgba(96,165,250,0.2));
+      color: #a78bfa;
+      text-decoration: none;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      border: 1px solid rgba(167,139,250,0.3);
+      border-radius: 999px;
+      transition: all 0.3s;
+    }
+
+    .links a:hover {
+      background: rgba(167,139,250,0.3);
+      box-shadow: 0 0 20px rgba(167,139,250,0.3);
+      color: #ffffff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #4a4e6a;
+      font-size: 0.85rem;
+    }
+
+    footer a {
+      color: #7c83a8;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #a78bfa;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 1rem 2rem; }
+      header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="stars"></div>
+  <div class="stars2"></div>
+  <div class="stars3"></div>
+  <div class="nebula"></div>
+
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <h1>Chloe Bennett</h1>
+      <p class="tagline">Looking up since 2012</p>
+      <span class="location">Las Vegas, NV</span>
+    </header>
+
+    <div class="section">
+      <h2>About Me</h2>
+      <div class="glow-divider"></div>
+      <p>Sophomore at Clark High School in Las Vegas. I'm an amateur astronomer with a 10-inch Dobsonian telescope set up on my roof. While everyone else in Vegas is looking at the neon lights, I'm looking at the stars. I've been stargazing since I was ten and I've logged over 300 observation sessions. My dream is to work at NASA — specifically on exoplanet detection. I'm also the founder of our school's Astronomy Club.</p>
+    </div>
+
+    <div class="planet-decoration">. * . * .</div>
+
+    <div class="section">
+      <h2>StarGazer</h2>
+      <div class="glow-divider"></div>
+      <p>StarGazer is an app that helps amateur astronomers plan their observation sessions. It pulls real-time weather data, light pollution maps, and astronomical event calendars to tell you the best nights to go out and what to look for. Point your phone at the sky and it identifies constellations, planets, and deep-sky objects in augmented reality.</p>
+      <p>Built with Swift for iOS, using CoreLocation and ARKit. The app includes a personal observation journal where you can log what you've seen, attach photos, and track your progress toward spotting all 110 Messier objects.</p>
+    </div>
+
+    <div class="section">
+      <h2>Demo</h2>
+      <div class="glow-divider"></div>
+      <div class="video-wrapper">
+        <iframe
+          src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+          title="StarGazer Demo Video"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <div class="links">
+      <a href="https://github.com">GitHub</a>
+      <a href="https://example.com">Live App</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

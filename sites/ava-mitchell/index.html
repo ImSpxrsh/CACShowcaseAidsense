@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MoodLog | Ava Mitchell</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Indie+Flower&family=Poppins:wght@300;400;600&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 300;
+      color: #4a4a6a;
+      min-height: 100vh;
+      background: linear-gradient(-45deg, #ffd1dc, #c3b1e1, #a2d2ff, #d4fc79, #ffd1dc);
+      background-size: 400% 400%;
+      animation: gradientShift 15s ease infinite;
+    }
+
+    @keyframes gradientShift {
+      0% { background-position: 0% 50%; }
+      25% { background-position: 50% 0%; }
+      50% { background-position: 100% 50%; }
+      75% { background-position: 50% 100%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-family: 'Indie Flower', cursive;
+      font-size: 3.5rem;
+      color: #5c4d7d;
+      margin-bottom: 0.3rem;
+    }
+
+    header .tagline {
+      font-size: 1.1rem;
+      color: #7a6b9a;
+      font-style: italic;
+    }
+
+    .mood-emoji-row {
+      text-align: center;
+      font-size: 2rem;
+      margin: 1rem 0 0.5rem;
+      letter-spacing: 8px;
+    }
+
+    .journal-card {
+      background: rgba(255, 255, 255, 0.65);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      box-shadow: 0 8px 32px rgba(92, 77, 125, 0.1);
+    }
+
+    h2 {
+      font-family: 'Indie Flower', cursive;
+      font-size: 1.8rem;
+      color: #5c4d7d;
+      margin-bottom: 1rem;
+    }
+
+    h2 .emoji-icon {
+      margin-right: 6px;
+    }
+
+    p {
+      line-height: 1.9;
+      margin-bottom: 1rem;
+      font-size: 1rem;
+    }
+
+    .date-stamp {
+      display: inline-block;
+      background: rgba(92, 77, 125, 0.1);
+      color: #7a6b9a;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+
+    .video iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 14px;
+      box-shadow: 0 4px 20px rgba(92, 77, 125, 0.15);
+    }
+
+    .mood-meter {
+      display: flex;
+      justify-content: center;
+      gap: 6px;
+      margin: 1.5rem 0;
+    }
+
+    .mood-meter .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    .mood-meter .dot:nth-child(1) { background: #ff6b6b; animation-delay: 0s; }
+    .mood-meter .dot:nth-child(2) { background: #ffa502; animation-delay: 0.2s; }
+    .mood-meter .dot:nth-child(3) { background: #ffd93d; animation-delay: 0.4s; }
+    .mood-meter .dot:nth-child(4) { background: #6bcb77; animation-delay: 0.6s; }
+    .mood-meter .dot:nth-child(5) { background: #4d96ff; animation-delay: 0.8s; }
+    .mood-meter .dot:nth-child(6) { background: #9b59b6; animation-delay: 1.0s; }
+    .mood-meter .dot:nth-child(7) { background: #fd79a8; animation-delay: 1.2s; }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); opacity: 0.7; }
+      50% { transform: scale(1.5); opacity: 1; }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #7a6b9a;
+      font-size: 0.9rem;
+    }
+
+    footer a {
+      color: #5c4d7d;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 1rem 2rem; }
+      header h1 { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <h1>Ava Mitchell</h1>
+      <p class="tagline">feelings are data too.</p>
+      <div class="mood-meter">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+    </header>
+
+    <div class="journal-card">
+      <h2><span class="emoji-icon">&#128156;</span> About Me</h2>
+      <span class="date-stamp">Charlotte, NC</span>
+      <p>I'm a senior at Myers Park High School in Charlotte, North Carolina. I'm super interested in psychology and UX design -- basically, understanding how people feel and building things that respond to those feelings. I've been tracking my own mood in journals since 7th grade (I have 11 notebooks filled), and I realized there had to be a better way.</p>
+      <p>When I'm not designing interfaces or reading psych research papers for fun (yes, for fun), I'm probably at a coffee shop sketching wireframes or rewatching a video essay about color theory.</p>
+    </div>
+
+    <div class="journal-card">
+      <h2><span class="emoji-icon">&#128203;</span> MoodLog</h2>
+      <span class="date-stamp">track &bull; reflect &bull; understand</span>
+      <p>MoodLog is a daily mood tracking app that helps teens understand their emotional patterns over time. Each day you log how you feel using emoji scales, add optional journal notes, and tag what might have influenced your mood (sleep, social, school stress, weather, etc.).</p>
+      <p>Over time, the app builds beautiful visualizations of your mood trends and shows you correlations you might not notice yourself -- like that you're always anxious on Sundays or happiest after exercise. I built it with React and Chart.js, and the data stays 100% on your device for privacy. No accounts, no cloud, no tracking.</p>
+    </div>
+
+    <div class="journal-card video">
+      <h2><span class="emoji-icon">&#127916;</span> Demo</h2>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="MoodLog Demo Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="mood-emoji-row">&#128522; &#128532; &#128525; &#128564; &#129300; &#128526; &#128557;</div>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

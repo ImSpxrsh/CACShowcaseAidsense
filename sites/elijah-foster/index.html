@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FixItUp | Elijah Foster</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Rajdhani:wght@400;600;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Rajdhani', sans-serif;
+      background: #0d47a1;
+      color: #bbdefb;
+      min-height: 100vh;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px),
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+    }
+
+    .container {
+      max-width: 850px;
+      margin: 0 auto;
+      padding: 3rem 2rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+    }
+
+    header::before, header::after {
+      content: "";
+      position: absolute;
+      width: 60px;
+      height: 60px;
+      border: 2px solid rgba(255,255,255,0.3);
+    }
+
+    header::before {
+      top: -10px;
+      left: -10px;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    header::after {
+      bottom: -10px;
+      right: -10px;
+      border-left: none;
+      border-top: none;
+    }
+
+    header h1 {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 2.8rem;
+      color: #ffffff;
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      text-shadow: 0 0 20px rgba(144,202,249,0.5);
+    }
+
+    header .tagline {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.95rem;
+      color: #64b5f6;
+      margin-top: 0.5rem;
+      letter-spacing: 2px;
+    }
+
+    header .location {
+      display: inline-block;
+      margin-top: 0.8rem;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem;
+      color: #90caf9;
+      border: 1px solid #42a5f5;
+      padding: 3px 14px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .blueprint-box {
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      background: rgba(13,71,161,0.5);
+    }
+
+    .blueprint-box::before {
+      content: attr(data-label);
+      position: absolute;
+      top: -10px;
+      left: 16px;
+      background: #0d47a1;
+      padding: 0 8px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem;
+      color: #42a5f5;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+    }
+
+    .blueprint-box h2 {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.3rem;
+      color: #ffffff;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 1px dashed rgba(255,255,255,0.2);
+    }
+
+    .blueprint-box p {
+      line-height: 1.9;
+      font-size: 1rem;
+      font-weight: 400;
+      margin-bottom: 0.8rem;
+    }
+
+    .dimension-line {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.2);
+      margin: 1.5rem 0;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem;
+    }
+
+    .dimension-line::before, .dimension-line::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: repeating-linear-gradient(90deg, rgba(255,255,255,0.2) 0, rgba(255,255,255,0.2) 5px, transparent 5px, transparent 10px);
+    }
+
+    .crosshair {
+      text-align: center;
+      font-size: 2rem;
+      color: rgba(255,255,255,0.15);
+      margin: 1rem 0;
+      letter-spacing: 20px;
+    }
+
+    .specs-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .spec-item {
+      border: 1px solid rgba(255,255,255,0.15);
+      padding: 1rem;
+      text-align: center;
+    }
+
+    .spec-item .spec-value {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 1.5rem;
+      color: #ffffff;
+      display: block;
+    }
+
+    .spec-item .spec-label {
+      font-size: 0.75rem;
+      color: #64b5f6;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 0.3rem;
+      display: block;
+    }
+
+    .video-section iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 1px solid rgba(255,255,255,0.25);
+      display: block;
+    }
+
+    .links {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .links a {
+      display: inline-block;
+      padding: 0.5rem 1.5rem;
+      margin: 0.3rem;
+      border: 1px solid #64b5f6;
+      color: #64b5f6;
+      text-decoration: none;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      transition: all 0.2s;
+    }
+
+    .links a:hover {
+      background: rgba(100,181,246,0.15);
+      color: #ffffff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #5c85ad;
+      font-size: 0.85rem;
+      font-family: 'Share Tech Mono', monospace;
+      border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    footer a {
+      color: #64b5f6;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 2rem 1rem; }
+      header h1 { font-size: 1.8rem; letter-spacing: 3px; }
+      .specs-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <h1>Elijah Foster</h1>
+      <p class="tagline">// if it's broken, I'll fix it</p>
+      <span class="location">Austin, TX</span>
+    </header>
+
+    <div class="blueprint-box" data-label="Section A — Bio">
+      <h2>About Me</h2>
+      <p>Junior at LASA High School in Austin, Texas. I build robots for FIRST Robotics competition team #5417 and I fix basically everything around the house — leaky faucets, squeaky doors, busted electronics, you name it. My mom says I was born with a wrench in my hand. I got into coding because I wanted my robots to be smarter, and now I want to help other people fix things themselves.</p>
+    </div>
+
+    <div class="dimension-line">REV 2.1</div>
+
+    <div class="blueprint-box" data-label="Section B — Project">
+      <h2>FixItUp</h2>
+      <p>FixItUp is a step-by-step repair guide app for common household problems. Users describe what's broken — a running toilet, a stuck drawer, a flickering light — and FixItUp walks them through the repair with illustrated instructions, tool lists, and video clips. No more paying $200 for a plumber to tighten a valve.</p>
+      <p>The app uses a simple diagnostic flow: answer a few questions, and it narrows down the likely issue and serves up the right guide. Built with React and a custom CMS for the repair database.</p>
+
+      <div class="specs-grid">
+        <div class="spec-item">
+          <span class="spec-value">150+</span>
+          <span class="spec-label">Repair Guides</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-value">React</span>
+          <span class="spec-label">Frontend</span>
+        </div>
+        <div class="spec-item">
+          <span class="spec-value">Node.js</span>
+          <span class="spec-label">Backend</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="crosshair">+ + +</div>
+
+    <div class="blueprint-box video-section" data-label="Section C — Demo">
+      <h2>Demo Video</h2>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="FixItUp Demo Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+    <div class="links">
+      <a href="https://github.com">GitHub</a>
+      <a href="https://example.com">Live App</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 // <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

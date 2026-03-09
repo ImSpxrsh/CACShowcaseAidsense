@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PotholeAlert | Aiden Murphy</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Arial', 'Helvetica', sans-serif;
+      color: #000;
+      background: #b5b5b5;
+      min-height: 100vh;
+      background-image:
+        repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 1px,
+          rgba(0,0,0,0.03) 1px,
+          rgba(0,0,0,0.03) 2px
+        );
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 4rem 0 0;
+    }
+
+    header {
+      background: #000;
+      color: #fff;
+      padding: 1rem;
+      border: none;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      text-transform: uppercase;
+      letter-spacing: 8px;
+      font-weight: 900;
+      margin: 0;
+      line-height: 1;
+    }
+
+    .header-sub {
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      margin-top: 0.5rem;
+      color: #999;
+    }
+
+    /* Brutalist table layout */
+    .content-table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 3px solid #000;
+    }
+
+    .content-table td {
+      border: 2px solid #000;
+      padding: 0;
+      vertical-align: top;
+      background: #d4d4d4;
+    }
+
+    .content-table td .inner {
+      padding: 1.5rem;
+    }
+
+    h2 {
+      font-size: 1.4rem;
+      text-transform: uppercase;
+      letter-spacing: 5px;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid #000;
+      padding-bottom: 0.3rem;
+    }
+
+    p {
+      line-height: 1.6;
+      margin-bottom: 0.8rem;
+      font-size: 0.95rem;
+    }
+
+    .full-width {
+      width: 100%;
+    }
+
+    .video-cell .inner {
+      padding: 0 !important;
+    }
+
+    .video-cell iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      display: block;
+    }
+
+    .fact-box {
+      background: #000;
+      color: #fff;
+      padding: 1rem 1.5rem;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 2px;
+      margin: 0;
+    }
+
+    .links-row {
+      background: #000 !important;
+    }
+
+    .links-row .inner {
+      display: flex;
+      gap: 0;
+    }
+
+    .links-row a {
+      display: block;
+      flex: 1;
+      padding: 1rem;
+      color: #fff;
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 900;
+      font-size: 0.9rem;
+      text-align: center;
+      border-right: 2px solid #333;
+      transition: background 0.1s;
+    }
+
+    .links-row a:last-child {
+      border-right: none;
+    }
+
+    .links-row a:hover {
+      background: #333;
+    }
+
+    .warning-stripe {
+      height: 20px;
+      background: repeating-linear-gradient(
+        -45deg,
+        #000,
+        #000 10px,
+        #ffcc00 10px,
+        #ffcc00 20px
+      );
+    }
+
+    footer {
+      text-align: left;
+      padding: 1rem;
+      color: #666;
+      font-size: 0.8rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      background: #000;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    footer a {
+      color: #999;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 0 0; }
+      header h1 { font-size: 2rem; letter-spacing: 4px; }
+      .content-table td { display: block; width: 100% !important; }
+    }
+  </style>
+</head>
+<body>
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <h1>AIDEN MURPHY</h1>
+      <div class="header-sub">
+        <span>Boston, MA</span>
+        <span>Congressional App Challenge 2026</span>
+      </div>
+    </header>
+
+    <div class="warning-stripe"></div>
+
+    <table class="content-table">
+      <tr>
+        <td style="width: 55%;">
+          <div class="inner">
+            <h2>ABOUT</h2>
+            <p>Senior in high school. I ride my bike everywhere around Boston. Got real tired of hitting potholes and nearly wiping out on my way to school. So I built an app about it. That's basically the whole story.</p>
+            <p>When I'm not biking or coding I'm probably complaining about the T being late again.</p>
+          </div>
+        </td>
+        <td style="width: 45%;">
+          <div class="inner">
+            <h2>THE APP</h2>
+            <p><strong>POTHOLEALERT</strong> lets cyclists and drivers report potholes by dropping a pin on a map. It aggregates reports, ranks the worst streets, and automatically generates complaint emails to the city.</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div class="fact-box">
+            BOSTON HAS OVER 19,000 POTHOLE COMPLAINTS PER YEAR. POTHOLEALERT HAS LOGGED 340+ IN BETA TESTING.
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2">
+          <div class="inner">
+            <h2>HOW IT WORKS</h2>
+            <p>Built with React Native and Google Maps API. Users snap a photo of the pothole, the app geolocates it, and it goes into a public database. The app uses clustering to identify the worst intersections and generates a severity score based on report frequency and photos. City officials can log in to a dashboard to prioritize repairs.</p>
+            <p>It also has a "Dodge Mode" that warns cyclists about reported potholes on their current route. Because nobody wants a flat tire at 7:45am.</p>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="video-cell">
+          <div class="inner">
+            <iframe
+              src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+              title="PotholeAlert Demo Video"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowfullscreen>
+            </iframe>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="2" class="links-row">
+          <div class="inner">
+            <a href="https://github.com">GITHUB</a>
+            <a href="https://example.com">LIVE APP</a>
+            <a href="../../">SHOWCASE</a>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+    <div class="warning-stripe"></div>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

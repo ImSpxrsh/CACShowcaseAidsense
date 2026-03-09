@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SafeWalk | Mia Johnson</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      color: #e0d6ff;
+      background: #0b0c2a;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* stars background */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      z-index: 0;
+      background:
+        radial-gradient(1px 1px at 10% 15%, #fff 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 25% 35%, #c9b3ff 50%, transparent 100%),
+        radial-gradient(1px 1px at 45% 10%, #fff 50%, transparent 100%),
+        radial-gradient(2px 2px at 60% 60%, #ffe4fb 50%, transparent 100%),
+        radial-gradient(1px 1px at 80% 20%, #fff 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 15% 70%, #c9b3ff 50%, transparent 100%),
+        radial-gradient(1px 1px at 90% 80%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 35% 85%, #ffe4fb 50%, transparent 100%),
+        radial-gradient(2px 2px at 70% 40%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 50% 50%, #c9b3ff 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 5% 45%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 95% 55%, #ffe4fb 50%, transparent 100%),
+        radial-gradient(1px 1px at 22% 92%, #fff 50%, transparent 100%),
+        radial-gradient(2px 2px at 78% 8%, #c9b3ff 50%, transparent 100%),
+        radial-gradient(1px 1px at 42% 72%, #fff 50%, transparent 100%),
+        radial-gradient(1.5px 1.5px at 88% 42%, #ffe4fb 50%, transparent 100%),
+        radial-gradient(1px 1px at 62% 22%, #fff 50%, transparent 100%),
+        radial-gradient(1px 1px at 33% 55%, #c9b3ff 50%, transparent 100%);
+      pointer-events: none;
+    }
+
+    .container {
+      max-width: 750px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      color: #d4b8ff;
+      text-shadow: 0 0 20px #a855f7, 0 0 60px #7c3aed, 0 0 100px #6d28d9;
+      letter-spacing: 2px;
+      margin-bottom: 0.5rem;
+    }
+
+    header .tagline {
+      font-size: 1.15rem;
+      color: #c4b5fd;
+      font-style: italic;
+      text-shadow: 0 0 8px rgba(196, 181, 253, 0.5);
+    }
+
+    .section-card {
+      background: rgba(30, 27, 75, 0.7);
+      border: 1px solid rgba(139, 92, 246, 0.3);
+      border-radius: 20px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      backdrop-filter: blur(4px);
+      box-shadow: 0 0 25px rgba(139, 92, 246, 0.15);
+    }
+
+    h2 {
+      font-size: 1.5rem;
+      color: #c084fc;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 12px rgba(192, 132, 252, 0.6);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    h2::before {
+      content: '\2729';
+      font-size: 1.2rem;
+    }
+
+    p {
+      line-height: 1.9;
+      margin-bottom: 1rem;
+      color: #ddd6fe;
+    }
+
+    .video iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
+    }
+
+    .moon {
+      width: 60px;
+      height: 60px;
+      background: radial-gradient(circle at 35% 35%, #fef3c7, #fbbf24);
+      border-radius: 50%;
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      box-shadow: 0 0 40px rgba(251, 191, 36, 0.5), 0 0 80px rgba(251, 191, 36, 0.2);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #7c7caf;
+      font-size: 0.9rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    footer a {
+      color: #c084fc;
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-shadow: 0 0 10px rgba(192, 132, 252, 0.6);
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 1rem 2rem; }
+      header h1 { font-size: 2rem; }
+      .moon { width: 40px; height: 40px; top: 20px; right: 20px; }
+    }
+  </style>
+</head>
+<body>
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <div class="moon"></div>
+
+    <header>
+      <h1>Mia Johnson</h1>
+      <p class="tagline">Walking safe under the stars, every single night.</p>
+    </header>
+
+    <section class="section-card">
+      <h2>About Me</h2>
+      <p>I'm a junior at Hillsboro High School in Nashville, Tennessee. I've been a volunteer EMT with the local fire department since sophomore year, and it completely changed how I see personal safety. I care deeply about making sure teen girls feel safe walking alone, whether it's from school, a friend's house, or a late practice.</p>
+      <p>When I'm not on calls or studying, I'm usually stargazing from my backyard or binge-watching true crime docs (which honestly is part of why I built this app).</p>
+    </section>
+
+    <section class="section-card">
+      <h2>SafeWalk</h2>
+      <p>SafeWalk is a personal safety app designed specifically for teenage girls. It lets you share your live walking route with trusted contacts, sends automatic check-in alerts, and has a one-tap emergency button that silently notifies your emergency circle with your GPS location.</p>
+      <p>The app also crowd-sources "safety ratings" for routes and streets based on user feedback, lighting conditions, and time of day. I built it using Flutter and Google Maps API, and it's currently being beta-tested by 40 students at my school.</p>
+    </section>
+
+    <section class="section-card video">
+      <h2>Demo Video</h2>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="SafeWalk Demo Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </section>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FridgeChef | Noah Garcia</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Fredoka+One&family=Patrick+Hand&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Patrick Hand', cursive;
+      color: #3d0c02;
+      min-height: 100vh;
+      background-color: #fff5f0;
+      background-image:
+        linear-gradient(45deg, #fce4e4 25%, transparent 25%),
+        linear-gradient(-45deg, #fce4e4 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #fce4e4 75%),
+        linear-gradient(-45deg, transparent 75%, #fce4e4 75%);
+      background-size: 40px 40px;
+      background-position: 0 0, 0 20px, 20px -20px, -20px 0;
+    }
+
+    .container {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2rem;
+      background: #c0392b;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 4px dashed #e74c3c;
+      box-shadow: 4px 4px 0 #7b241c;
+    }
+
+    header h1 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 3rem;
+      color: #f9ca24;
+      text-shadow: 3px 3px 0 #7b241c;
+      letter-spacing: 3px;
+    }
+
+    header .tagline {
+      font-size: 1.3rem;
+      color: #ffeaa7;
+      margin-top: 0.5rem;
+    }
+
+    .menu-card {
+      background: #fffbf0;
+      border: 3px solid #c0392b;
+      border-radius: 4px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      position: relative;
+      box-shadow: 3px 3px 0 rgba(0,0,0,0.15);
+    }
+
+    .menu-card::before {
+      content: '~ \2606 ~';
+      position: absolute;
+      top: -14px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #fffbf0;
+      padding: 0 12px;
+      color: #c0392b;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    h2 {
+      font-family: 'Fredoka One', cursive;
+      font-size: 1.6rem;
+      color: #f9ca24;
+      text-shadow: 2px 2px 0 #c0392b;
+      margin-bottom: 1rem;
+      text-align: center;
+      border-bottom: 2px dashed #e74c3c;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      font-size: 1.15rem;
+    }
+
+    .price-tag {
+      display: inline-block;
+      background: #c0392b;
+      color: #f9ca24;
+      padding: 4px 14px;
+      border-radius: 999px;
+      font-family: 'Fredoka One', cursive;
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .video iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: 4px solid #c0392b;
+      border-radius: 4px;
+    }
+
+    .diner-divider {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #c0392b;
+      margin: 1rem 0;
+      letter-spacing: 8px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 1rem;
+      color: #7b241c;
+    }
+
+    footer a {
+      color: #c0392b;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer a:hover {
+      text-decoration: underline wavy;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 1rem 2rem; }
+      header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <h1>NOAH GARCIA</h1>
+      <p class="tagline">Order up! One app, fresh outta the kitchen.</p>
+    </header>
+
+    <div class="menu-card">
+      <h2>About the Chef</h2>
+      <span class="price-tag">Albuquerque, NM</span>
+      <p>I'm a senior at Eldorado High School and president of the cooking club (which I started freshman year with three people -- now we have 28!). I've been coding since 8th grade and cooking since I could reach the stove. My abuela taught me that the best meals come from whatever's already in the fridge.</p>
+      <p>I decided to combine my two passions and build something that could actually help families eat better without spending more money.</p>
+    </div>
+
+    <div class="diner-divider">* * * * *</div>
+
+    <div class="menu-card">
+      <h2>Today's Special: FridgeChef</h2>
+      <span class="price-tag">FREE -- always!</span>
+      <p>FridgeChef is an app that lets you scan or type in whatever ingredients you have at home, and it generates real recipes you can actually make right now. No grocery run needed. It uses a recipe-matching algorithm I built that scores recipes by how many ingredients you already own.</p>
+      <p>It also tracks expiration dates and suggests recipes that use up stuff that's about to go bad. I built it with React and Node.js, and my cooking club has been the world's most enthusiastic beta testers. We've saved so much food from the trash!</p>
+    </div>
+
+    <div class="diner-divider">* * * * *</div>
+
+    <div class="menu-card video">
+      <h2>Watch the Sizzle Reel</h2>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="FridgeChef Demo Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>

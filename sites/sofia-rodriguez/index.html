@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LinguaFlip | Sofia Rodriguez</title>
+  <link rel="stylesheet" href="../../assets/css/shared.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&family=Quicksand:wght@400;600;700&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Quicksand', 'Trebuchet MS', sans-serif;
+      color: #3d2c2c;
+      background: linear-gradient(135deg, #ff9a56 0%, #ff6b8a 25%, #c471ed 50%, #7b68ee 75%, #48dbfb 100%);
+      background-attachment: fixed;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 4rem 2rem 3rem;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      padding: 2.5rem;
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(10px);
+      border-radius: 40px;
+    }
+
+    header h1 {
+      font-family: 'Caveat', cursive;
+      font-size: 4rem;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+      margin-bottom: 0.3rem;
+    }
+
+    .tagline {
+      font-family: 'Caveat', cursive;
+      font-size: 1.5rem;
+      color: #fff;
+    }
+
+    .location {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.85);
+      margin-top: 0.5rem;
+      font-weight: 600;
+    }
+
+    .languages {
+      margin-top: 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .lang-badge {
+      background: rgba(255, 255, 255, 0.3);
+      color: #fff;
+      padding: 0.4rem 1.2rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      border: 2px solid rgba(255, 255, 255, 0.5);
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.85);
+      backdrop-filter: blur(5px);
+      border-radius: 30px;
+      padding: 2rem;
+      margin-bottom: 1.5rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 2rem;
+      color: #c471ed;
+      margin-bottom: 1rem;
+      border-bottom: 3px solid;
+      border-image: linear-gradient(90deg, #ff9a56, #ff6b8a, #c471ed) 1;
+      padding-bottom: 0.5rem;
+    }
+
+    p {
+      line-height: 1.9;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+      font-weight: 500;
+    }
+
+    .translation-fun {
+      background: linear-gradient(135deg, rgba(255, 154, 86, 0.1), rgba(196, 113, 237, 0.1));
+      border-radius: 20px;
+      padding: 1rem 1.5rem;
+      margin: 1rem 0;
+      border-left: 5px solid #ff6b8a;
+    }
+
+    .translation-fun .es {
+      font-family: 'Caveat', cursive;
+      font-size: 1.3rem;
+      color: #ff6b8a;
+    }
+
+    .translation-fun .en {
+      font-size: 0.9rem;
+      color: #888;
+      font-style: italic;
+    }
+
+    .video iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      border-radius: 20px;
+    }
+
+    .links a {
+      display: inline-block;
+      padding: 0.7rem 1.8rem;
+      margin: 0.4rem;
+      background: linear-gradient(135deg, #ff6b8a, #c471ed);
+      color: white;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 1rem;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none;
+    }
+
+    .links a:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(196, 113, 237, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: rgba(255, 255, 255, 0.8);
+      font-size: 0.95rem;
+    }
+
+    footer a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 3rem 1rem 2rem; }
+      header h1 { font-size: 2.8rem; }
+    }
+  </style>
+</head>
+<body>
+  <a href="../../" class="back-to-showcase">&larr; Back to Showcase</a>
+
+  <div class="container">
+    <header>
+      <h1>Sofia Rodriguez</h1>
+      <p class="tagline">Connecting the world, one word at a time ~</p>
+      <p class="location">Houston, TX</p>
+      <div class="languages">
+        <span class="lang-badge">English</span>
+        <span class="lang-badge">Espa&ntilde;ol</span>
+      </div>
+    </header>
+
+    <section class="about">
+      <h2>About Me</h2>
+      <p>Hey! I'm a junior in Houston and I grew up speaking both Spanish and English at home. I've always thought it was unfair that language-learning apps cost so much money or feel so boring, so I decided to build something better. When I'm not coding, I'm probably reading poetry or helping out at my church's ESL classes.</p>
+      <div class="translation-fun">
+        <p class="es">"La tecnolog&iacute;a puede unir a las personas."</p>
+        <p class="en">Technology can bring people together.</p>
+      </div>
+    </section>
+
+    <section class="app">
+      <h2>LinguaFlip</h2>
+      <p>LinguaFlip is a free flashcard-based language learning app with a twist: instead of just memorizing words, you learn through real conversations and cultural context. Each card includes pronunciation audio, example sentences, and a fun fact about the culture behind the language.</p>
+      <p>Right now it supports Spanish-English and English-Spanish, but I designed the backend so volunteers can add any language pair. It's built with React and uses spaced repetition algorithms so you actually remember what you learn!</p>
+    </section>
+
+    <section class="video">
+      <h2>Demo</h2>
+      <iframe
+        src="https://www.youtube.com/embed/dQw4w9WgXcQ"
+        title="LinguaFlip Demo Video"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </section>
+
+    <section class="links">
+      <h2>Links</h2>
+      <a href="https://github.com">GitHub</a>
+      <a href="https://example.com">Live App</a>
+    </section>
+  </div>
+
+  <footer>
+    <p>Congressional App Challenge 2026 &bull; <a href="../../">Back to Showcase</a></p>
+  </footer>
+
+  <script src="../../assets/js/nav.js" data-root="../../"></script>
+</body>
+</html>
