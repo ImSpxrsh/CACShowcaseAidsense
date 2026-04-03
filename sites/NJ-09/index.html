@@ -75,6 +75,15 @@
       background-image: linear-gradient(to right, #f87171, #ffffff);
     }
     
+    
+    /* Flip Card Styles */
+    .perspective-1000 { perspective: 1000px; }
+    .preserve-3d { transform-style: preserve-3d; }
+    .backface-hidden { backface-visibility: hidden; -webkit-backface-visibility: hidden; }
+    .rotate-y-180 { transform: rotateY(180deg); }
+    .flip-card-inner { transition: transform 0.6s; transform-style: preserve-3d; }
+    .group:hover .flip-card-inner { transform: rotateY(180deg); }
+
     .bg-gradient-red {
       background-image: linear-gradient(to bottom right, #ef4444, #be123c);
     }
@@ -93,12 +102,13 @@
   </div>
 
   <!-- Navbar -->
-  <nav class="relative z-50 max-w-7xl mx-auto px-6 py-6 flex justify-between items-center" data-aos="fade-down" data-aos-duration="1000">
-    <div class="flex items-center gap-2">
-      <div class="w-8 h-8 rounded-lg bg-gradient-red flex items-center justify-center font-bold text-white shadow-[0_0_15px_rgba(239,68,68,0.5)]">
-        A
+  <nav class="relative z-50 max-w-7xl mx-auto px-6 pt-16 pb-6 lg:pt-6 lg:pl-48 flex justify-between items-center flex-col sm:flex-row gap-4" data-aos="fade-down" data-aos-duration="1000">
+    <div class="flex items-center gap-3">
+      <div class="w-10 h-10 rounded-xl overflow-hidden flex items-center justify-center shadow-[0_0_20px_rgba(255,255,255,0.3)] bg-white">
+        <img src="image.png" alt="AidSense Logo" class="w-full h-full object-cover" >
+        
       </div>
-      <span class="text-xl font-semibold tracking-tight">AidSense</span>
+      <span class="text-2xl font-bold tracking-tight text-white">AidSense</span>
     </div>
     <div class="flex items-center gap-6">
       <a href="https://github.com/ImSpxrsh/Aidsense" target="_blank" class="text-sm font-medium text-gray-400 hover:text-white transition-colors flex items-center gap-2">
@@ -113,7 +123,7 @@
   <main class="relative z-10 w-full flex flex-col items-center overflow-hidden">
     
     <!-- 1. HERO SECTION -->
-    <section class="w-full max-w-7xl mx-auto px-6 py-24 md:py-32 flex flex-col items-center text-center">
+    <section class="w-full max-w-7xl mx-auto px-12 md:px-24 py-20 md:py-32 flex flex-col items-center text-center">
       <div data-aos="fade-up" data-aos-duration="1000" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300 mb-8 backdrop-blur-md">
         <span class="flex h-2 w-2 rounded-full bg-red-500 animate-pulse"></span>
         Built for NJ-09 Community Support
@@ -139,7 +149,7 @@
     </section>
 
     <!-- 4. SOCIAL PROOF (Moved up slightly for impact) -->
-    <section class="w-full max-w-3xl mx-auto px-6 mb-32" data-aos="zoom-y-out" data-aos-delay="400">
+    <section class="w-full max-w-4xl mx-auto px-12 md:px-24 mb-32" data-aos="zoom-y-out" data-aos-delay="400">
       <a href="https://www.congressionalappchallenge.us/25-NJ09/" target="_blank" class="group block relative rounded-2xl p-[1px] bg-gradient-to-r from-red-500/40 via-rose-500/40 to-red-500/40 overflow-hidden hover:from-red-400 hover:via-rose-400 hover:to-red-400 transition-all duration-500 shadow-[0_0_40px_rgba(225,29,72,0.15)] hover:shadow-[0_0_60px_rgba(225,29,72,0.3)]">
         <div class="relative bg-black/80 backdrop-blur-xl rounded-2xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
           <div class="flex items-center gap-4">
@@ -159,7 +169,7 @@
     </section>
 
     <!-- 2. VIDEO DEMO -->
-    <section id="demo" class="w-full px-6 mb-32 flex flex-col items-center">
+    <section id="demo" class="w-full px-12 md:px-24 mb-32 flex flex-col items-center">
       <div data-aos="fade-up" class="w-full max-w-5xl rounded-[2rem] p-2 glass-card relative group">
         <!-- Glow Behind -->
         <div class="absolute inset-0 bg-gradient-to-r from-red-500/30 to-rose-500/30 blur-3xl -z-10 group-hover:opacity-100 opacity-60 transition-opacity duration-700"></div>
@@ -184,8 +194,8 @@
     </section>
 
     <!-- STORY SECTION: Why we made AidSense -->
-    <section class="w-full max-w-5xl mx-auto px-6 mb-32">
-      <div class="glass-card rounded-[2rem] p-10 md:p-16 relative overflow-hidden" data-aos="fade-up">
+    <section class="w-full max-w-6xl mx-auto px-12 md:px-24 mb-32">
+      <div class="glass-card rounded-[2rem] p-10 md:p-16 relative overflow-hidden bg-gradient-to-b from-transparent to-red-950/20" data-aos="fade-up">
         <div class="absolute top-0 right-0 p-8 opacity-10">
           <i data-lucide="quote" class="w-32 h-32 text-red-500"></i>
         </div>
@@ -358,73 +368,114 @@
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           
+          
           <!-- Sparsh Roy -->
-          <a href="https://www.linkedin.com/in/roysparsh/" target="_blank" data-aos="fade-up" data-aos-delay="0" class="group flex flex-col justify-between p-8 rounded-3xl glass-card relative overflow-hidden transition-all duration-300 hover:-translate-y-1">
-            <div class="absolute inset-0 bg-gradient-to-br from-red-500/0 to-rose-500/0 group-hover:from-red-500/10 group-hover:to-rose-500/10 transition-colors duration-500"></div>
-            <div class="relative z-10 flex justify-between items-start mb-8">
-              <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-xl font-bold text-white shadow-[0_0_15px_rgba(255,255,255,0.05)] border border-white/10 group-hover:border-white/20 transition-all">
-                S
+          <div data-aos="fade-up" data-aos-delay="0" class="group perspective-1000 h-[350px] w-full">
+            <div class="relative w-full h-full flip-card-inner rounded-3xl cursor-pointer">
+              <!-- FRONT -->
+              <div class="absolute inset-0 backface-hidden glass-card rounded-3xl p-8 flex flex-col justify-between overflow-hidden shadow-lg border border-white/10">
+                <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-rose-500/10"></div>
+                <div class="relative z-10 flex justify-between items-start mb-8">
+                  <div class="w-16 h-16 rounded-full overflow-hidden bg-white/10 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.05)] border border-white/20">
+                    <img src="./sparsh.png" alt="Sparsh Roy" class="w-full h-full object-cover">
+                  </div>
+                  <a href="https://www.linkedin.com/in/roysparsh/" target="_blank" class="p-2.5 rounded-full bg-white/5 text-gray-400 hover:bg-[#0A66C2] hover:text-white transition-colors duration-300 shadow-md">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                  </a>
+                </div>
+                <div class="relative z-10 mt-auto">
+                  <h3 class="text-3xl font-bold mb-1 text-white">Sparsh Roy</h3>
+                  <p class="text-red-400 text-sm font-semibold uppercase tracking-wider">Hopewell Valley Central High School</p>
+                  <p class="text-gray-400 text-sm mt-3 animate-pulse flex items-center gap-2"><i data-lucide="mouse-pointer-click" class="w-4 h-4"></i> Hover to read bio</p>
+                </div>
               </div>
-              <div class="p-2.5 rounded-full bg-white/5 text-gray-400 group-hover:bg-[#0A66C2] group-hover:text-white transition-all duration-300 shadow-md">
-                <i data-lucide="linkedin" class="w-5 h-5"></i>
+              <!-- BACK -->
+              <div class="absolute inset-0 backface-hidden rotate-y-180 glass-card rounded-3xl p-6 flex flex-col justify-center overflow-auto shadow-lg border border-white/10 bg-black/80">
+                <p class="text-gray-200 text-sm leading-relaxed">Hey, my name is Sparsh Roy and I’m from Hopewell, New Jersey. (Member and Current President of the Hopewell Valley Class of 2028) I’m really interested in computer science and enjoy building apps and working on tech projects that can actually help people. I like exploring new ideas, solving problems, and being involved in things like debate and STEM activities. I’m always looking for ways to learn, create, and make an impact through what I build.</p>
               </div>
             </div>
-            <div class="relative z-10">
-              <h3 class="text-2xl font-bold mb-1 text-white">Sparsh Roy</h3>
-              <p class="text-gray-400 text-sm">Hopewell Valley Central High School, New Jersey</p>
-            </div>
-          </a>
+          </div>
 
           <!-- Mohammed Gezzaz -->
-          <a href="https://www.linkedin.com/in/mohammed-gezzaz-6638b9354/" target="_blank" data-aos="fade-up" data-aos-delay="100" class="group flex flex-col justify-between p-8 rounded-3xl glass-card relative overflow-hidden transition-all duration-300 hover:-translate-y-1">
-            <div class="absolute inset-0 bg-gradient-to-br from-red-500/0 to-rose-500/0 group-hover:from-red-500/10 group-hover:to-rose-500/10 transition-colors duration-500"></div>
-            <div class="relative z-10 flex justify-between items-start mb-8">
-              <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-xl font-bold text-white shadow-[0_0_15px_rgba(255,255,255,0.05)] border border-white/10 group-hover:border-white/20 transition-all">
-                M
+          <div data-aos="fade-up" data-aos-delay="100" class="group perspective-1000 h-[350px] w-full">
+            <div class="relative w-full h-full flip-card-inner rounded-3xl cursor-pointer">
+              <!-- FRONT -->
+              <div class="absolute inset-0 backface-hidden glass-card rounded-3xl p-8 flex flex-col justify-between overflow-hidden shadow-lg border border-white/10">
+                <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-rose-500/10"></div>
+                <div class="relative z-10 flex justify-between items-start mb-8">
+                  <div class="w-16 h-16 rounded-full overflow-hidden bg-white/10 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.05)] border border-white/20">
+                    <img src="./mohammed.png" alt="Mohammed Gezzaz" class="w-full h-full object-cover">
+                  </div>
+                  <a href="https://www.linkedin.com/in/mohammed-gezzaz-6638b9354/" target="_blank" class="p-2.5 rounded-full bg-white/5 text-gray-400 hover:bg-[#0A66C2] hover:text-white transition-colors duration-300 shadow-md">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                  </a>
+                </div>
+                <div class="relative z-10 mt-auto">
+                  <h3 class="text-3xl font-bold mb-1 text-white">Mohammed Gezzaz</h3>
+                  <p class="text-red-400 text-sm font-semibold uppercase tracking-wider">High Tech High School, NJ</p>
+                  <p class="text-gray-400 text-sm mt-3 animate-pulse flex items-center gap-2"><i data-lucide="mouse-pointer-click" class="w-4 h-4"></i> Hover to read bio</p>
+                </div>
               </div>
-              <div class="p-2.5 rounded-full bg-white/5 text-gray-400 group-hover:bg-[#0A66C2] group-hover:text-white transition-all duration-300 shadow-md">
-                <i data-lucide="linkedin" class="w-5 h-5"></i>
+              <!-- BACK -->
+              <div class="absolute inset-0 backface-hidden rotate-y-180 glass-card rounded-3xl p-6 flex flex-col justify-center overflow-auto shadow-lg border border-white/10 bg-black/80">
+                <p class="text-gray-200 text-sm leading-relaxed">Hello my name is Mohammed Gezzaz and I am from New Jersey. I am currently a junior at High Tech High School. I am passionate about coding and helping out communities whether through volunteering or developing apps.</p>
               </div>
             </div>
-            <div class="relative z-10">
-              <h3 class="text-2xl font-bold mb-1 text-white">Mohammed Gezzaz</h3>
-              <p class="text-gray-400 text-sm">High Tech High School, New Jersey</p>
-            </div>
-          </a>
+          </div>
 
           <!-- Aarya Patel -->
-          <a href="https://www.linkedin.com/in/aarya-patel-8901262a5/" target="_blank" data-aos="fade-up" data-aos-delay="200" class="group flex flex-col justify-between p-8 rounded-3xl glass-card relative overflow-hidden transition-all duration-300 hover:-translate-y-1">
-            <div class="absolute inset-0 bg-gradient-to-br from-red-500/0 to-rose-500/0 group-hover:from-red-500/10 group-hover:to-rose-500/10 transition-colors duration-500"></div>
-            <div class="relative z-10 flex justify-between items-start mb-8">
-              <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-xl font-bold text-white shadow-[0_0_15px_rgba(255,255,255,0.05)] border border-white/10 group-hover:border-white/20 transition-all">
-                A
+          <div data-aos="fade-up" data-aos-delay="200" class="group perspective-1000 h-[350px] w-full">
+            <div class="relative w-full h-full flip-card-inner rounded-3xl cursor-pointer">
+              <!-- FRONT -->
+              <div class="absolute inset-0 backface-hidden glass-card rounded-3xl p-8 flex flex-col justify-between overflow-hidden shadow-lg border border-white/10">
+                <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-rose-500/10"></div>
+                <div class="relative z-10 flex justify-between items-start mb-8">
+                  <div class="w-16 h-16 rounded-full overflow-hidden bg-white/10 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.05)] border border-white/20">
+                    <img src="./aarya.png" alt="Aarya Patel" class="w-full h-full object-cover">
+                  </div>
+                  <a href="https://www.linkedin.com/in/aarya-patel-8901262a5/" target="_blank" class="p-2.5 rounded-full bg-white/5 text-gray-400 hover:bg-[#0A66C2] hover:text-white transition-colors duration-300 shadow-md">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                  </a>
+                </div>
+                <div class="relative z-10 mt-auto">
+                  <h3 class="text-3xl font-bold mb-1 text-white">Aarya Patel</h3>
+                  <p class="text-red-400 text-sm font-semibold uppercase tracking-wider">High Tech High School, NJ</p>
+                  <p class="text-gray-400 text-sm mt-3 animate-pulse flex items-center gap-2"><i data-lucide="mouse-pointer-click" class="w-4 h-4"></i> Hover to read bio</p>
+                </div>
               </div>
-              <div class="p-2.5 rounded-full bg-white/5 text-gray-400 group-hover:bg-[#0A66C2] group-hover:text-white transition-all duration-300 shadow-md">
-                <i data-lucide="linkedin" class="w-5 h-5"></i>
+              <!-- BACK -->
+              <div class="absolute inset-0 backface-hidden rotate-y-180 glass-card rounded-3xl p-6 flex flex-col justify-center overflow-auto shadow-lg border border-white/10 bg-black/80">
+                <p class="text-gray-200 text-sm leading-relaxed">Hello, my name is Aarya Patel and I am from New Jersey. I am currently a Junior in high school with a strong interest in engineering and computer science. I am passionate about using technology to create meaningful solutions and help others learn.</p>
               </div>
             </div>
-            <div class="relative z-10">
-              <h3 class="text-2xl font-bold mb-1 text-white">Aarya Patel</h3>
-              <p class="text-gray-400 text-sm">High Tech High School, New Jersey</p>
-            </div>
-          </a>
+          </div>
 
           <!-- Arhaan Shah -->
-          <a href="https://www.linkedin.com/in/arhaan-shah/" target="_blank" data-aos="fade-up" data-aos-delay="300" class="group flex flex-col justify-between p-8 rounded-3xl glass-card relative overflow-hidden transition-all duration-300 hover:-translate-y-1">
-            <div class="absolute inset-0 bg-gradient-to-br from-red-500/0 to-rose-500/0 group-hover:from-red-500/10 group-hover:to-rose-500/10 transition-colors duration-500"></div>
-            <div class="relative z-10 flex justify-between items-start mb-8">
-              <div class="w-14 h-14 rounded-full bg-white/10 flex items-center justify-center text-xl font-bold text-white shadow-[0_0_15px_rgba(255,255,255,0.05)] border border-white/10 group-hover:border-white/20 transition-all">
-                A
+          <div data-aos="fade-up" data-aos-delay="300" class="group perspective-1000 h-[350px] w-full">
+            <div class="relative w-full h-full flip-card-inner rounded-3xl cursor-pointer">
+              <!-- FRONT -->
+              <div class="absolute inset-0 backface-hidden glass-card rounded-3xl p-8 flex flex-col justify-between overflow-hidden shadow-lg border border-white/10">
+                <div class="absolute inset-0 bg-gradient-to-br from-red-500/10 to-rose-500/10"></div>
+                <div class="relative z-10 flex justify-between items-start mb-8">
+                  <div class="w-16 h-16 rounded-full overflow-hidden bg-white/10 flex items-center justify-center shadow-[0_0_15px_rgba(255,255,255,0.05)] border border-white/20">
+                    <img src="./arhaan.png" alt="Arhaan Shah" class="w-full h-full object-cover">
+                  </div>
+                  <a href="https://www.linkedin.com/in/arhaan-shah/" target="_blank" class="p-2.5 rounded-full bg-white/5 text-gray-400 hover:bg-[#0A66C2] hover:text-white transition-colors duration-300 shadow-md">
+                    <i data-lucide="linkedin" class="w-5 h-5"></i>
+                  </a>
+                </div>
+                <div class="relative z-10 mt-auto">
+                  <h3 class="text-3xl font-bold mb-1 text-white">Arhaan Shah</h3>
+                  <p class="text-red-400 text-sm font-semibold uppercase tracking-wider">Paradise Valley High School, AZ</p>
+                  <p class="text-gray-400 text-sm mt-3 animate-pulse flex items-center gap-2"><i data-lucide="mouse-pointer-click" class="w-4 h-4"></i> Hover to read bio</p>
+                </div>
               </div>
-              <div class="p-2.5 rounded-full bg-white/5 text-gray-400 group-hover:bg-[#0A66C2] group-hover:text-white transition-all duration-300 shadow-md">
-                <i data-lucide="linkedin" class="w-5 h-5"></i>
+              <!-- BACK -->
+              <div class="absolute inset-0 backface-hidden rotate-y-180 glass-card rounded-3xl p-6 flex flex-col justify-center overflow-auto shadow-lg border border-white/10 bg-black/80">
+                <p class="text-gray-200 text-sm leading-relaxed">Hey, my name is Arhaan Shah and I'm from Phoenix, Arizona. I'm currently a freshman at Paradise Valley High School, and I am passionate about AI, machine learning, and data science, and interested in using it to solve real-world problems.</p>
               </div>
             </div>
-            <div class="relative z-10">
-              <h3 class="text-2xl font-bold mb-1 text-white">Arhaan Shah</h3>
-              <p class="text-gray-400 text-sm">Paradise Valley High School, Arizona</p>
-            </div>
-          </a>
+          </div>
 
         </div>
       </div>
@@ -461,7 +512,9 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
       
       <div class="flex items-center gap-2 opacity-80 hover:opacity-100 transition-opacity">
-        <div class="w-6 h-6 rounded bg-gradient-red flex items-center justify-center font-bold text-[10px] text-white">A</div>
+        <div class="w-6 h-6 rounded overflow-hidden flex items-center justify-center bg-white">
+          <img src="image.png" alt="AidSense Logo" class="w-full h-full object-cover">
+        </div>
         <span class="font-semibold text-lg text-white">AidSense</span>
       </div>
       
